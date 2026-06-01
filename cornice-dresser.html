@@ -20,6 +20,7 @@
       font-family: 'Inter', sans-serif;
       font-weight: 400;
       -webkit-font-smoothing: antialiased;
+      height: 100%;
     }
 
     .fixed-label {
@@ -29,7 +30,6 @@
       font-family: 'Libre Bodoni', serif;
       font-size: 22px;
       font-weight: 700;
-      
       color: #1a1a18;
       z-index: 9999;
       text-transform: uppercase;
@@ -49,7 +49,6 @@
       font-family: 'Inter', sans-serif;
       font-size: 14px;
       font-weight: 400;
-      
       color: #1a1a18;
       text-transform: uppercase;
       text-decoration: none;
@@ -57,64 +56,105 @@
     }
 
     .fixed-nav a:hover {
+      color: #555;
+    }
+
+    .project-layout {
+      display: grid;
+      grid-template-columns: 300px 55vw;
+      min-height: 100vh;
+      padding-top: 82px;
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .project-info {
+      position: sticky;
+      top: 82px;
+      height: calc(100vh - 82px);
+      padding: 0 40px 48px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .info-block {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .project-back {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      color: #888880;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .project-back:hover {
       color: #1a1a18;
     }
 
-    .project-images {
-      padding-top: 80px;
-      padding-bottom: 160px;
+    .info-value {
+      font-size: 13px;
+      font-weight: 400;
+      color: #1a1a18;
+      line-height: 1.6;
     }
 
-    .project-image,
-    .project-image-caption {
-      max-width: 55vw;
-      margin-left: auto;
-      margin-right: auto;
-      margin-bottom: clamp(16px, 3vw, 32px);
+    .info-value.title {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .project-images {
+      padding: 0 48px 160px 0;
+      display: flex;
+      flex-direction: column;
+      gap: clamp(16px, 3vw, 32px);
     }
 
     .project-image img {
       display: block;
       width: 100%;
-      height: auto;
+      max-height: 70vh;
+      object-fit: contain;
+      object-position: left;
     }
 
-    .project-image-caption {
-      margin-bottom: clamp(16px, 3vw, 32px);
+    .project-back-mobile {
+      display: none;
     }
 
-    .project-caption-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 12px;
-    }
+    @media (max-width: 768px) {
+      .project-back-desktop {
+        display: none;
+      }
 
-    .project-title {
-      font-family: 'Inter', sans-serif;
-      font-size: clamp(0.7rem, 1vw, 0.85rem);
-      font-weight: 400;
-      
-      color: #1a1a18;
-      line-height: 1;
-      margin-bottom: 0;
-      text-transform: uppercase;
-    }
+      .project-back-mobile {
+        display: block;
+        padding: 40px 20px 100px;
+      }
 
-    .project-year {
-      font-family: 'Inter', sans-serif;
-      font-size: clamp(0.7rem, 1vw, 0.85rem);
-      font-weight: 400;
-      
-      color: #1a1a18;
-    }
+      .project-layout {
+        grid-template-columns: 1fr;
+        padding-top: 82px;
+      }
 
-    .project-desc {
-      font-family: 'Inter', sans-serif;
-      font-size: clamp(0.7rem, 1vw, 0.85rem);
-      font-weight: 400;
-      line-height: 1.8;
-      color: #3a3a36;
+      .project-info {
+        position: static;
+        height: auto;
+        padding: 12px 20px 24px;
+        gap: 20px;
+      }
+
+      .project-images {
+        padding: 0 20px 100px;
+      }
     }
 
     @media (max-width: 600px) {
@@ -133,12 +173,6 @@
       .fixed-nav a {
         font-size: 10px;
       }
-
-      .project-images {
-        padding-left: 20px;
-        padding-right: 20px;
-        padding-bottom: 100px;
-      }
     }
   </style>
 </head>
@@ -151,27 +185,36 @@
     <a href="index.html#about">About</a>
   </nav>
 
-  <div class="project-images">
+  <div class="project-layout">
 
-    <div class="project-image">
-      <img src="images/cornice-dresser/UAL Model Garage Studio Shoot-144.jpg" alt="Cornice Dresser">
-    </div>
-
-    <div class="project-image-caption">
-      <div class="project-caption-row">
-        <h1 class="project-title">Cornice Dresser</h1>
-        <span class="project-year">2020</span>
+    <aside class="project-info">
+      <div class="info-block">
+        <span class="info-value title">Cornice Dresser</span>
       </div>
-      <p class="project-desc">Cornice is a modern take on the clothing dresser. As fashion consumers have shifted from suits and ties to luxury t-shirts and hoodies, clothing storage has stayed the same. Where traditional dressers hide clothes in drawers, Cornice's open shelves let you display prized garments while keeping them organized. Its airy, sculptural frame works equally well in a bedroom, walk-in closet, or retail environment.</p>
+      <div class="info-block">
+        <span class="info-value">2020</span>
+      </div>
+      <div class="info-block">
+        <span class="info-value">Cornice is a modern take on the clothing dresser. As fashion consumers have shifted from suits and ties to luxury t-shirts and hoodies, clothing storage has stayed the same. Where traditional dressers hide clothes in drawers, Cornice's open shelves let you display prized garments while keeping them organized. Its airy, sculptural frame works equally well in a bedroom, walk-in closet, or retail environment.</span>
+      </div>
+      <div class="info-block project-back-desktop" style="padding-top: 20px;">
+        <a class="project-back" href="index.html">&#8249; BACK</a>
+      </div>
+    </aside>
+
+    <div class="project-images">
+      <div class="project-image">
+        <img src="images/cornice-dresser/UAL Model Garage Studio Shoot-144.jpg" alt="Cornice Dresser">
+      </div>
+      <div class="project-image">
+        <img src="images/cornice-dresser/UAL Model Garage Studio Shoot-186-1800.jpg" alt="Cornice Dresser detail">
+      </div>
+      <div class="project-image">
+        <img src="images/cornice-dresser/UAL Model Garage Studio Shoot-189-1800.jpg" alt="Cornice Dresser in use">
+      </div>
     </div>
 
-    <div class="project-image">
-      <img src="images/cornice-dresser/UAL Model Garage Studio Shoot-186-1800.jpg" alt="Cornice Dresser detail">
-    </div>
-
-    <div class="project-image">
-      <img src="images/cornice-dresser/UAL Model Garage Studio Shoot-189-1800.jpg" alt="Cornice Dresser in use">
-    </div>
+    <a class="project-back project-back-mobile" href="index.html">&#8249; BACK</a>
 
   </div>
 
