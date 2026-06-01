@@ -20,6 +20,7 @@
       font-family: 'Inter', sans-serif;
       font-weight: 400;
       -webkit-font-smoothing: antialiased;
+      height: 100%;
     }
 
     /* Fixed name — top left */
@@ -30,7 +31,6 @@
       font-family: 'Libre Bodoni', serif;
       font-size: 22px;
       font-weight: 700;
-      
       color: #1a1a18;
       z-index: 9999;
       text-transform: uppercase;
@@ -51,7 +51,6 @@
       font-family: 'Inter', sans-serif;
       font-size: 14px;
       font-weight: 400;
-      
       color: #1a1a18;
       text-transform: uppercase;
       text-decoration: none;
@@ -59,80 +58,82 @@
     }
 
     .fixed-nav a:hover {
-      color: #1a1a18;
+      color: #555;
     }
 
-.project-title {
-      font-family: 'Inter', sans-serif;
-      font-size: clamp(0.7rem, 1vw, 0.85rem);
-      font-weight: 400;
-      
-      color: #1a1a18;
-      line-height: 1;
-      margin-bottom: 0;
-      text-transform: uppercase;
+    /* Layout */
+    .project-layout {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      min-height: 100vh;
+      padding-top: 80px;
     }
 
-    .project-image-caption {
-      margin-bottom: clamp(16px, 3vw, 32px);
-    }
-
-    .project-caption-row {
+    /* Left: sticky text panel */
+    .project-info {
+      position: sticky;
+      top: 80px;
+      height: calc(100vh - 80px);
+      padding: 48px 40px 48px 32px;
       display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 12px;
+      flex-direction: column;
+      gap: 10px;
     }
 
-    .project-year {
-      font-family: 'Inter', sans-serif;
-      font-size: clamp(0.7rem, 1vw, 0.85rem);
+    .info-block {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+.info-value {
+      font-size: 13px;
       font-weight: 400;
-      
       color: #1a1a18;
+      line-height: 1.6;
     }
 
-    .project-desc {
-      font-family: 'Inter', sans-serif;
-      font-size: clamp(0.7rem, 1vw, 0.85rem);
-      font-weight: 400;
-      line-height: 1.8;
-      color: #3a3a36;
+    .info-value.title {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
     }
 
-    /* Images */
+    /* Right: scrollable images */
     .project-images {
-      padding-bottom: 160px;
+      padding: 48px 48px 160px 0;
+      display: flex;
+      flex-direction: column;
+      gap: clamp(16px, 3vw, 32px);
     }
 
-    .project-image,
-    .project-image-caption {
+    .project-image {
       max-width: 55vw;
-      margin-left: auto;
-      margin-right: auto;
-      margin-bottom: clamp(16px, 3vw, 32px);
     }
 
     .project-image img {
       display: block;
       width: 100%;
-      max-height: 55vh;
-      object-fit: cover;
       height: auto;
     }
 
-    /* Two-column grid for secondary images */
-    .project-image-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: clamp(12px, 2vw, 24px);
-      margin-bottom: clamp(16px, 3vw, 32px);
-    }
+    /* Mobile */
+    @media (max-width: 768px) {
+      .project-layout {
+        grid-template-columns: 1fr;
+        padding-top: 72px;
+      }
 
-    .project-image-grid img {
-      display: block;
-      width: 100%;
-      height: auto;
+      .project-info {
+        position: static;
+        height: auto;
+        padding: 32px 20px 24px;
+        gap: 20px;
+      }
+
+      .project-images {
+        padding: 0 20px 100px;
+      }
     }
 
     @media (max-width: 600px) {
@@ -151,20 +152,6 @@
       .fixed-nav a {
         font-size: 10px;
       }
-
-      .project-header {
-        padding: 100px 20px 40px;
-      }
-
-      .project-images {
-        padding-left: 20px;
-        padding-right: 20px;
-        padding-bottom: 100px;
-      }
-
-      .project-image-grid {
-        grid-template-columns: 1fr;
-      }
     }
   </style>
 </head>
@@ -177,50 +164,48 @@
     <a href="index.html#about">About</a>
   </nav>
 
-  <div class="project-images">
+  <div class="project-layout">
 
-    <div class="project-image">
-      <img src="images/boot-bag/Switch_Designs-021.jpg" alt="Boot Bag front view">
-    </div>
-
-    <div class="project-image-caption">
-      <div class="project-caption-row">
-        <h1 class="project-title">Boot Bag</h1>
-        <span class="project-year">2023</span>
+    <aside class="project-info">
+      <div class="info-block">
+        <span class="info-value title">Boot Bag</span>
       </div>
-      <p class="project-desc">A ski boot bag with a patented transformational design — built to carry all your essential gear in style. With a single reversible buckle, it converts seamlessly from backpack to slim tote, solving the bulk and awkwardness of traditional boot bags while looking good doing it.</p>
-    </div>
+      <div class="info-block">
+        <span class="info-value">2023</span>
+      </div>
+      <div class="info-block">
+        <span class="info-value">A ski boot bag with a patented transformational design — built to carry all your essential gear in style. With a single reversible buckle, it converts seamlessly from backpack to slim tote, solving the bulk and awkwardness of traditional boot bags while looking good doing it.</span>
+      </div>
+    </aside>
 
-    <div class="project-image">
-      <img src="images/boot-bag/Switch_Designs-039.jpg" alt="Boot Bag back">
-    </div>
-
-    <div class="project-image">
-      <img src="images/boot-bag/Switch_Designs-025.jpg" alt="Boot Bag side view">
-    </div>
-
-    <div class="project-image">
-      <img src="images/boot-bag/Switch_Designs-060.jpg" alt="Boot Bag configuration">
-    </div>
-
-    <div class="project-image">
-      <img src="images/boot-bag/Switch_Designs-055.jpg" alt="Boot Bag detail">
-    </div>
-
-    <div class="project-image">
-      <img src="images/boot-bag/Switch_Designs-051.jpg" alt="Boot Bag open configuration">
-    </div>
-
-    <div class="project-image">
-      <img src="images/boot-bag/Switch_Designs-049.jpg" alt="Boot Bag top view">
-    </div>
-
-    <div class="project-image">
-      <img src="images/boot-bag/Switch_Designs-097.jpg" alt="Boot Bag tote mode">
-    </div>
-
-    <div class="project-image">
-      <img src="images/boot-bag/Switch_Designs-119.jpg" alt="Boot Bag interior">
+    <div class="project-images">
+      <div class="project-image">
+        <img src="images/boot-bag/Switch_Designs-021.jpg" alt="Boot Bag front view">
+      </div>
+      <div class="project-image">
+        <img src="images/boot-bag/Switch_Designs-039.jpg" alt="Boot Bag back">
+      </div>
+      <div class="project-image">
+        <img src="images/boot-bag/Switch_Designs-025.jpg" alt="Boot Bag side view">
+      </div>
+      <div class="project-image">
+        <img src="images/boot-bag/Switch_Designs-060.jpg" alt="Boot Bag configuration">
+      </div>
+      <div class="project-image">
+        <img src="images/boot-bag/Switch_Designs-055.jpg" alt="Boot Bag detail">
+      </div>
+      <div class="project-image">
+        <img src="images/boot-bag/Switch_Designs-051.jpg" alt="Boot Bag open configuration">
+      </div>
+      <div class="project-image">
+        <img src="images/boot-bag/Switch_Designs-049.jpg" alt="Boot Bag top view">
+      </div>
+      <div class="project-image">
+        <img src="images/boot-bag/Switch_Designs-097.jpg" alt="Boot Bag tote mode">
+      </div>
+      <div class="project-image">
+        <img src="images/boot-bag/Switch_Designs-119.jpg" alt="Boot Bag interior">
+      </div>
     </div>
 
   </div>
