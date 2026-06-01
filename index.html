@@ -128,21 +128,21 @@
     }
 
     .about-inner {
-      max-width: 520px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(40px, 6vw, 96px);
+      align-items: start;
     }
 
-    .about-name {
-      font-family: 'Archivo Narrow', sans-serif;
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      font-weight: 400;
-      letter-spacing: 0.04em;
-      margin-bottom: 40px;
-      line-height: 1.1;
+    .about-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
     }
 
     .about-bio {
       font-family: 'Archivo Narrow', sans-serif;
-      font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+      font-size: clamp(0.95rem, 1.5vw, 1.1rem);
       font-weight: 300;
       line-height: 1.8;
       color: #3a3a36;
@@ -175,6 +175,21 @@
       border-color: #1a1a18;
     }
 
+    .about-photo {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .about-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .about-photo {
+        order: -1;
+      }
+    }
     @media (max-width: 600px) {
       .fixed-label {
         font-size: 14px;
@@ -222,7 +237,7 @@
 
       <div class="entry">
         <a href="boot-bag.html" class="entry-link">
-          <img src="images/boot-bag/Switch_Designs-021.jpg" alt="Boot Bag" loading="lazy">
+          <img src="images/boot-bag/Switch_Designs-051.jpg" alt="Boot Bag" loading="lazy">
           <div class="entry-meta">
             <div class="entry-title">Boot Bag</div>
           </div>
@@ -269,12 +284,12 @@
 
   <div class="about-page" id="about-page">
     <div class="about-inner">
-      <h2 class="about-name">James Poss</h2>
-      <p class="about-bio">
-        Your bio goes here. A short, sharp description of who you are, what you make, and the kind of work you do — across physical products, photography, video, and whatever else you bring to a project.
-      </p>
-      <div class="about-contact-label">Contact</div>
-      <a class="about-email" href="mailto:james@jamesposs.studio">james@jamesposs.studio</a>
+      <div class="about-left">
+        <p class="about-bio">James Poss is a multidisciplinary creative working across design, product, ecommerce, and visual content.</p>
+        <div class="about-contact-label">Contact</div>
+        <a class="about-email" href="mailto:james_poss@icloud.com">james_poss@icloud.com</a>
+      </div>
+      <img class="about-photo" src="images/P1000596-6.jpeg" alt="James Poss">
     </div>
   </div>
 
