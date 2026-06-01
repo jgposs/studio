@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>James Poss</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      background-color: #f9f8f6;
+      color: #1a1a18;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Fixed name — top left */
+    .fixed-label {
+      position: fixed;
+      top: 24px;
+      left: 32px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      color: #1a1a18;
+      z-index: 9999;
+      pointer-events: none;
+    }
+
+    /* Fixed nav — top right */
+    .fixed-nav {
+      position: fixed;
+      top: 26px;
+      right: 32px;
+      z-index: 9999;
+      display: flex;
+      gap: 28px;
+    }
+
+    .fixed-nav a {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #888880;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .fixed-nav a:hover {
+      color: #1a1a18;
+    }
+
+    /* Stream */
+    .stream {
+      padding-left: clamp(24px, 8vw, 112px);
+      padding-right: clamp(24px, 8vw, 112px);
+      padding-bottom: 180px;
+    }
+
+    .entry {
+      margin-bottom: clamp(80px, 14vw, 180px);
+    }
+
+    .entry img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .entry-meta {
+      margin-top: 20px;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+
+    .entry-title {
+      font-family: 'DM Sans', sans-serif;
+      font-size: clamp(0.8rem, 1.4vw, 1rem);
+      font-weight: 300;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #1a1a18;
+    }
+
+    .entry-year {
+      font-family: 'DM Sans', sans-serif;
+      font-size: clamp(0.7rem, 1.1vw, 0.8rem);
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      color: #aaa9a2;
+    }
+
+    /* Divider between sections */
+    .stream-divider {
+      width: 32px;
+      height: 1px;
+      background: #d4d3cc;
+      margin: 0 0 clamp(80px, 14vw, 180px);
+    }
+
+    /* About page */
+    .about-page {
+      display: none;
+      min-height: 100vh;
+      padding: 140px clamp(24px, 8vw, 112px) 180px;
+    }
+
+    .about-page.active {
+      display: block;
+    }
+
+    .main-stream.hidden {
+      display: none;
+    }
+
+    .about-inner {
+      max-width: 520px;
+    }
+
+    .about-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 300;
+      letter-spacing: 0.01em;
+      color: #1a1a18;
+      margin-bottom: 40px;
+      line-height: 1.1;
+    }
+
+    .about-bio {
+      font-family: 'DM Sans', sans-serif;
+      font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+      font-weight: 300;
+      line-height: 1.8;
+      color: #3a3a36;
+      margin-bottom: 56px;
+    }
+
+    .about-contact-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 300;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #aaa9a2;
+      margin-bottom: 12px;
+    }
+
+    .about-email {
+      font-family: 'DM Sans', sans-serif;
+      font-size: clamp(0.9rem, 1.5vw, 1rem);
+      font-weight: 300;
+      letter-spacing: 0.02em;
+      color: #1a1a18;
+      text-decoration: none;
+      border-bottom: 1px solid #d4d3cc;
+      padding-bottom: 2px;
+      transition: border-color 0.2s ease;
+    }
+
+    .about-email:hover {
+      border-color: #1a1a18;
+    }
+
+    @media (max-width: 600px) {
+      .fixed-label {
+        font-size: 14px;
+        top: 18px;
+        left: 20px;
+      }
+
+      .fixed-nav {
+        top: 20px;
+        right: 20px;
+        gap: 20px;
+      }
+
+      .fixed-nav a {
+        font-size: 10px;
+      }
+
+      .stream {
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 100px;
+      }
+
+      .entry {
+        margin-bottom: 64px;
+      }
+
+      .about-page {
+        padding: 100px 20px 100px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="fixed-label">James Poss</div>
+
+  <nav class="fixed-nav">
+    <a href="#" onclick="showWork(event)">Work</a>
+    <a href="#" onclick="showAbout(event)">About</a>
+  </nav>
+
+  <div class="main-stream" id="main-stream">
+    <main class="stream" style="padding-top: 80px;">
+
+      <div class="entry">
+        <img src="https://picsum.photos/seed/jp001/1400/920" alt="Object 001" loading="lazy">
+        <div class="entry-meta">
+          <div class="entry-title">Object 001</div>
+          <div class="entry-year">2024</div>
+        </div>
+      </div>
+
+      <div class="entry">
+        <img src="https://picsum.photos/seed/jp002/1400/980" alt="Photo 001" loading="lazy">
+        <div class="entry-meta">
+          <div class="entry-title">Photo 001</div>
+          <div class="entry-year">2024</div>
+        </div>
+      </div>
+
+      <div class="entry">
+        <img src="https://picsum.photos/seed/jp003/1400/860" alt="Product 001" loading="lazy">
+        <div class="entry-meta">
+          <div class="entry-title">Product 001</div>
+          <div class="entry-year">2023</div>
+        </div>
+      </div>
+
+      <div class="entry">
+        <img src="https://picsum.photos/seed/jp004/1400/1050" alt="Object 002" loading="lazy">
+        <div class="entry-meta">
+          <div class="entry-title">Object 002</div>
+          <div class="entry-year">2023</div>
+        </div>
+      </div>
+
+      <div class="entry">
+        <img src="https://picsum.photos/seed/jp005/1400/900" alt="Photo 002" loading="lazy">
+        <div class="entry-meta">
+          <div class="entry-title">Photo 002</div>
+          <div class="entry-year">2022</div>
+        </div>
+      </div>
+
+      <div class="entry">
+        <img src="https://picsum.photos/seed/jp006/1400/940" alt="Product 002" loading="lazy">
+        <div class="entry-meta">
+          <div class="entry-title">Product 002</div>
+          <div class="entry-year">2022</div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <div class="about-page" id="about-page">
+    <div class="about-inner">
+      <h2 class="about-name">James Poss</h2>
+      <p class="about-bio">
+        Your bio goes here. A short, sharp description of who you are, what you make, and the kind of work you do — across physical products, photography, video, and whatever else you bring to a project.
+      </p>
+      <div class="about-contact-label">Contact</div>
+      <a class="about-email" href="mailto:james@jamesposs.studio">james@jamesposs.studio</a>
+    </div>
+  </div>
+
+  <script>
+    function showAbout(e) {
+      e.preventDefault();
+      document.getElementById('main-stream').classList.add('hidden');
+      document.getElementById('about-page').classList.add('active');
+      window.scrollTo(0, 0);
+    }
+
+    function showWork(e) {
+      e.preventDefault();
+      document.getElementById('about-page').classList.remove('active');
+      document.getElementById('main-stream').classList.remove('hidden');
+      window.scrollTo(0, 0);
+    }
+  </script>
+
+</body>
+</html>
