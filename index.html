@@ -52,7 +52,6 @@
       font-family: 'Inter', sans-serif;
       font-size: 14px;
       font-weight: 400;
-      
       color: #1a1a18;
       text-transform: uppercase;
       text-decoration: none;
@@ -60,7 +59,68 @@
     }
 
     .fixed-nav a:hover {
+      color: #555;
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      position: fixed;
+      top: 22px;
+      right: 20px;
+      z-index: 10001;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: #1a1a18;
+      transition: all 0.25s ease;
+    }
+
+    .hamburger.open span:nth-child(1) {
+      transform: translateY(6.5px) rotate(45deg);
+    }
+
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.open span:nth-child(3) {
+      transform: translateY(-6.5px) rotate(-45deg);
+    }
+
+    /* Mobile menu overlay */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: #fafaf9;
+      z-index: 10000;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+    }
+
+    .mobile-menu.open {
+      display: flex;
+    }
+
+    .mobile-menu a {
+      font-family: 'Inter', sans-serif;
+      font-size: 24px;
+      font-weight: 400;
       color: #1a1a18;
+      text-transform: uppercase;
+      text-decoration: none;
     }
 
     /* Stream */
@@ -183,17 +243,21 @@
         order: -1;
       }
     }
+    @media (max-width: 768px) {
+      .fixed-nav {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
     @media (max-width: 600px) {
       .fixed-label {
         font-size: 14px;
         top: 18px;
         left: 20px;
-      }
-
-      .fixed-nav {
-        top: 20px;
-        right: 20px;
-        gap: 20px;
       }
 
       .fixed-nav a {
@@ -225,6 +289,15 @@
     <a href="#" onclick="showWork(event)">Work</a>
     <a href="#" onclick="showAbout(event)">About</a>
   </nav>
+
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#" onclick="showWork(event); toggleMenu()">Work</a>
+    <a href="#" onclick="showAbout(event); toggleMenu()">About</a>
+  </div>
 
   <div class="main-stream" id="main-stream">
     <main class="stream" style="padding-top: 82px;">
@@ -281,6 +354,11 @@
       document.getElementById('about-page').classList.remove('active');
       document.getElementById('main-stream').classList.remove('hidden');
       window.scrollTo(0, 0);
+    }
+
+    function toggleMenu() {
+      document.getElementById('hamburger').classList.toggle('open');
+      document.getElementById('mobile-menu').classList.toggle('open');
     }
   </script>
 
