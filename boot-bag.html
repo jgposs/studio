@@ -66,7 +66,7 @@
       display: grid;
       grid-template-columns: 300px 55vw;
       min-height: 100vh;
-      padding-top: 80px;
+      padding-top: 72px;
       max-width: 1100px;
       margin-left: auto;
       margin-right: auto;
@@ -75,9 +75,9 @@
     /* Left: sticky text panel */
     .project-info {
       position: sticky;
-      top: 80px;
-      height: calc(100vh - 80px);
-      padding: 48px 40px 48px 32px;
+      top: 72px;
+      height: calc(100vh - 72px);
+      padding: 20px 40px 48px 32px;
       display: flex;
       flex-direction: column;
       gap: 10px;
@@ -89,7 +89,20 @@
       gap: 8px;
     }
 
-.info-value {
+    .project-back {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      color: #888880;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .project-back:hover {
+      color: #1a1a18;
+    }
+
+    .info-value {
       font-size: 13px;
       font-weight: 400;
       color: #1a1a18;
@@ -104,7 +117,7 @@
 
     /* Right: scrollable images */
     .project-images {
-      padding: 48px 48px 160px 0;
+      padding: 20px 48px 160px 0;
       display: flex;
       flex-direction: column;
       gap: clamp(16px, 3vw, 32px);
@@ -176,6 +189,9 @@
       </div>
       <div class="info-block">
         <span class="info-value">A ski boot bag with a patented transformational design — built to carry all your essential gear in style. With a single reversible buckle, it converts seamlessly from backpack to slim tote, solving the bulk and awkwardness of traditional boot bags while looking good doing it.</span>
+      </div>
+      <div class="info-block" style="padding-top: 20px;">
+        <a class="project-back" href="index.html">&#8249; BACK</a>
       </div>
     </aside>
 
