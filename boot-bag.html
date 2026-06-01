@@ -64,9 +64,12 @@
     /* Layout */
     .project-layout {
       display: grid;
-      grid-template-columns: 280px 1fr;
+      grid-template-columns: 300px 55vw;
       min-height: 100vh;
       padding-top: 80px;
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     /* Left: sticky text panel */
@@ -107,14 +110,12 @@
       gap: clamp(16px, 3vw, 32px);
     }
 
-    .project-image {
-      max-width: 55vw;
-    }
-
     .project-image img {
       display: block;
       width: 100%;
-      height: auto;
+      max-height: 70vh;
+      object-fit: contain;
+      object-position: left;
     }
 
     /* Mobile */
