@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Boot Bag — James Poss</title>
+  <title>Cornice Dresser — James Poss</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:wght@700&family=Archivo+Narrow:wght@300;400&display=swap" rel="stylesheet">
@@ -22,7 +22,6 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Fixed name — top left */
     .fixed-label {
       position: fixed;
       top: 24px;
@@ -37,7 +36,6 @@
       text-decoration: none;
     }
 
-    /* Fixed nav — top right */
     .fixed-nav {
       position: fixed;
       top: 26px;
@@ -61,15 +59,21 @@
       color: #1a1a18;
     }
 
-.project-title {
-      font-family: 'Archivo Narrow', sans-serif;
-      font-size: clamp(1rem, 1.6vw, 1.2rem);
-      font-weight: 300;
-      letter-spacing: 0.06em;
-      color: #1a1a18;
-      line-height: 1;
-      margin-bottom: 0;
-      text-transform: uppercase;
+    .project-images {
+      padding-left: clamp(24px, 8vw, 112px);
+      padding-right: clamp(24px, 8vw, 112px);
+      padding-top: 80px;
+      padding-bottom: 160px;
+    }
+
+    .project-image {
+      margin-bottom: clamp(16px, 3vw, 32px);
+    }
+
+    .project-image img {
+      display: block;
+      width: 100%;
+      height: auto;
     }
 
     .project-image-caption {
@@ -81,6 +85,17 @@
       justify-content: space-between;
       align-items: baseline;
       margin-bottom: 12px;
+    }
+
+    .project-title {
+      font-family: 'Archivo Narrow', sans-serif;
+      font-size: clamp(1rem, 1.6vw, 1.2rem);
+      font-weight: 300;
+      letter-spacing: 0.06em;
+      color: #1a1a18;
+      line-height: 1;
+      margin-bottom: 0;
+      text-transform: uppercase;
     }
 
     .project-year {
@@ -97,37 +112,6 @@
       font-weight: 300;
       line-height: 1.8;
       color: #3a3a36;
-    }
-
-    /* Images */
-    .project-images {
-      padding-left: clamp(24px, 8vw, 112px);
-      padding-right: clamp(24px, 8vw, 112px);
-      padding-bottom: 160px;
-    }
-
-    .project-image {
-      margin-bottom: clamp(16px, 3vw, 32px);
-    }
-
-    .project-image img {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-
-    /* Two-column grid for secondary images */
-    .project-image-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: clamp(12px, 2vw, 24px);
-      margin-bottom: clamp(16px, 3vw, 32px);
-    }
-
-    .project-image-grid img {
-      display: block;
-      width: 100%;
-      height: auto;
     }
 
     @media (max-width: 600px) {
@@ -147,18 +131,10 @@
         font-size: 10px;
       }
 
-      .project-header {
-        padding: 100px 20px 40px;
-      }
-
       .project-images {
         padding-left: 20px;
         padding-right: 20px;
         padding-bottom: 100px;
-      }
-
-      .project-image-grid {
-        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -175,47 +151,23 @@
   <div class="project-images">
 
     <div class="project-image">
-      <img src="images/boot-bag/Switch_Designs-021.jpg" alt="Boot Bag front view">
+      <img src="images/cornice-dresser/UAL Model Garage Studio Shoot-144.jpg" alt="Cornice Dresser">
     </div>
 
     <div class="project-image-caption">
       <div class="project-caption-row">
-        <h1 class="project-title">Boot Bag</h1>
-        <span class="project-year">2023</span>
+        <h1 class="project-title">Cornice Dresser</h1>
+        <span class="project-year">2020</span>
       </div>
-      <p class="project-desc">A ski boot bag with a patented transformational design — built to carry all your essential gear in style. With a single reversible buckle, it converts seamlessly from backpack to slim tote, solving the bulk and awkwardness of traditional boot bags while looking good doing it.</p>
+      <p class="project-desc">Cornice is a modern take on the clothing dresser. As fashion consumers have shifted from suits and ties to luxury t-shirts and hoodies, clothing storage has stayed the same. Where traditional dressers hide clothes in drawers, Cornice's open shelves let you display prized garments while keeping them organized. Its airy, sculptural frame works equally well in a bedroom, walk-in closet, or retail environment.</p>
     </div>
 
     <div class="project-image">
-      <img src="images/boot-bag/Switch_Designs-039.jpg" alt="Boot Bag back">
+      <img src="images/cornice-dresser/UAL Model Garage Studio Shoot-186-1800.jpg" alt="Cornice Dresser detail">
     </div>
 
     <div class="project-image">
-      <img src="images/boot-bag/Switch_Designs-025.jpg" alt="Boot Bag side view">
-    </div>
-
-    <div class="project-image">
-      <img src="images/boot-bag/Switch_Designs-060.jpg" alt="Boot Bag configuration">
-    </div>
-
-    <div class="project-image">
-      <img src="images/boot-bag/Switch_Designs-055.jpg" alt="Boot Bag detail">
-    </div>
-
-    <div class="project-image">
-      <img src="images/boot-bag/Switch_Designs-051.jpg" alt="Boot Bag open configuration">
-    </div>
-
-    <div class="project-image">
-      <img src="images/boot-bag/Switch_Designs-049.jpg" alt="Boot Bag top view">
-    </div>
-
-    <div class="project-image">
-      <img src="images/boot-bag/Switch_Designs-097.jpg" alt="Boot Bag tote mode">
-    </div>
-
-    <div class="project-image">
-      <img src="images/boot-bag/Switch_Designs-119.jpg" alt="Boot Bag interior">
+      <img src="images/cornice-dresser/UAL Model Garage Studio Shoot-189-1800.jpg" alt="Cornice Dresser in use">
     </div>
 
   </div>
