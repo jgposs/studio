@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creative — Switch PT1 — James Poss</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:wght@700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      background-color: #fafaf9;
+      color: #1a1a18;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      font-size: 13px;
+      letter-spacing: -0.01em;
+      height: 100%;
+    }
+
+    /* Fixed name — top left */
+    .fixed-label {
+      position: fixed;
+      top: 24px;
+      left: 32px;
+      font-family: 'Libre Bodoni', serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: #1a1a18;
+      z-index: 9999;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    /* Fixed nav — top right */
+    .fixed-nav {
+      position: fixed;
+      top: 26px;
+      right: 32px;
+      z-index: 9999;
+      display: flex;
+      gap: 28px;
+    }
+
+    .fixed-nav a {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      color: #1a1a18;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      position: fixed;
+      top: 30px;
+      right: 20px;
+      z-index: 10001;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: #1a1a18;
+      transition: all 0.25s ease;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: #fafaf9;
+      z-index: 10000;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: 'Inter', sans-serif;
+      font-size: 24px;
+      font-weight: 400;
+      color: #1a1a18;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+    @media (max-width: 768px) {
+      .fixed-nav { display: none; }
+      .hamburger { display: flex; }
+    }
+    .fixed-nav a:hover {
+      color: #555;
+    }
+
+    /* Layout */
+    .project-layout {
+      display: grid;
+      grid-template-columns: 300px 55vw;
+      min-height: 100vh;
+      padding-top: 82px;
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Left: sticky text panel */
+    .project-info {
+      position: sticky;
+      top: 82px;
+      height: calc(100vh - 82px);
+      padding: 0 40px 48px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .info-block {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .project-back {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      color: #888880;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .project-back:hover {
+      color: #1a1a18;
+    }
+
+    .info-value {
+      font-size: 13px;
+      font-weight: 400;
+      color: #1a1a18;
+      line-height: 1.6;
+      text-align: justify;
+    }
+
+    .info-value.title {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    /* Right: scrollable images */
+    .project-images {
+      padding: 0 48px 160px 0;
+      display: flex;
+      flex-direction: column;
+      gap: clamp(16px, 3vw, 32px);
+    }
+
+    .project-image img {
+      display: block;
+      width: 100%;
+      max-height: 70vh;
+      object-fit: contain;
+      object-position: left;
+    }
+
+    .project-back-mobile {
+      display: none;
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      .project-back-desktop {
+        display: none;
+      }
+
+      .project-back-mobile {
+        display: block;
+        padding: 40px 20px 100px;
+      }
+      .project-layout {
+        grid-template-columns: 1fr;
+        padding-top: 82px;
+      }
+
+      .project-info {
+        position: static;
+        height: auto;
+        padding: 0 20px 24px;
+        gap: 20px;
+      }
+
+      .project-images {
+        padding: 0 20px 100px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hamburger { top: 19px; }
+      .fixed-label {
+        font-size: 16px;
+        top: 18px;
+        left: 20px;
+      }
+
+      .fixed-nav {
+        top: 20px;
+        right: 20px;
+        gap: 20px;
+      }
+
+      .fixed-nav a {
+        font-size: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <a class="fixed-label" href="index.html">James Poss</a>
+
+  <nav class="fixed-nav">
+    <a href="index.html">Work</a>
+    <a href="press.html">Press</a>
+    <a href="index.html#about">About</a>
+  </nav>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+  <div class="mobile-menu" id="mobile-menu"><a href="index.html">Work</a><a href="press.html">Press</a>
+    <a href="index.html#about">About</a></div>
+
+  <div class="project-layout">
+
+    <aside class="project-info">
+      <div class="info-block">
+        <span class="info-value title">Creative — Switch PT1</span>
+      </div>
+      <div class="info-block">
+        <span class="info-value">Photoshoot for Switch Designs. On location in Jackson, WY. Photography by Peter Lobozzo. Produced by James Poss.</span>
+      </div>
+      <div class="info-block project-back-desktop" style="padding-top: 20px;">
+        <a class="project-back" href="index.html">&#8249; BACK</a>
+      </div>
+    </aside>
+
+    <div class="project-images">
+      <div class="project-image">
+        <img src="images/creative-switch-pt1/LobozzoPeter-0148.jpg" alt="Creative Switch PT1">
+      </div>
+      <div class="project-image">
+        <img src="images/creative-switch-pt1/LobozzoPeter_0132.jpg" alt="Creative Switch PT1">
+      </div>
+      <div class="project-image">
+        <img src="images/creative-switch-pt1/LobozzoPeter_0136.jpg" alt="Creative Switch PT1">
+      </div>
+      <div class="project-image">
+        <img src="images/creative-switch-pt1/LobozzoPeter_0199.jpg" alt="Creative Switch PT1">
+      </div>
+      <div class="project-image">
+        <img src="images/creative-switch-pt1/LobozzoPeter_0245.jpg" alt="Creative Switch PT1">
+      </div>
+      <div class="project-image">
+        <img src="images/creative-switch-pt1/LobozzoPeter_078.jpg" alt="Creative Switch PT1">
+      </div>
+    </div>
+
+    <a class="project-back project-back-mobile" href="index.html">&#8249; BACK</a>
+
+  </div>
+
+  <script>function toggleMenu(){document.getElementById("hamburger").classList.toggle("open");document.getElementById("mobile-menu").classList.toggle("open");}</script>
+</body>
+</html>
