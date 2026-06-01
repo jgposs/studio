@@ -6,7 +6,7 @@
   <title>James Poss</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:wght@700&family=Archivo+Narrow:wght@300;400&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after {
       box-sizing: border-box;
@@ -15,9 +15,9 @@
     }
 
     html, body {
-      background-color: #f9f8f6;
+      background-color: #fafaf9;
       color: #1a1a18;
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Archivo Narrow', sans-serif;
       font-weight: 300;
       -webkit-font-smoothing: antialiased;
     }
@@ -27,13 +27,14 @@
       position: fixed;
       top: 24px;
       left: 32px;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 18px;
-      font-weight: 400;
-      letter-spacing: 0.02em;
+      font-family: 'Libre Bodoni', serif;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
       color: #1a1a18;
       z-index: 9999;
       pointer-events: none;
+      text-transform: uppercase;
     }
 
     /* Fixed nav — top right */
@@ -47,11 +48,10 @@
     }
 
     .fixed-nav a {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 12px;
+      font-family: 'Archivo Narrow', sans-serif;
+      font-size: 14px;
       font-weight: 300;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
+      letter-spacing: 0.06em;
       color: #888880;
       text-decoration: none;
       transition: color 0.2s ease;
@@ -80,26 +80,28 @@
 
     .entry-meta {
       margin-top: 20px;
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
     }
 
     .entry-title {
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Archivo Narrow', sans-serif;
       font-size: clamp(0.8rem, 1.4vw, 1rem);
       font-weight: 300;
       letter-spacing: 0.06em;
-      text-transform: uppercase;
       color: #1a1a18;
     }
 
-    .entry-year {
-      font-family: 'DM Sans', sans-serif;
-      font-size: clamp(0.7rem, 1.1vw, 0.8rem);
-      font-weight: 300;
-      letter-spacing: 0.08em;
-      color: #aaa9a2;
+    .entry-link {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .entry-link img {
+      transition: opacity 0.2s ease;
+    }
+
+    .entry-link:hover img {
+      opacity: 0.88;
     }
 
     /* Divider between sections */
@@ -130,17 +132,16 @@
     }
 
     .about-name {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Archivo Narrow', sans-serif;
       font-size: clamp(2rem, 5vw, 3.5rem);
-      font-weight: 300;
-      letter-spacing: 0.01em;
-      color: #1a1a18;
+      font-weight: 400;
+      letter-spacing: 0.04em;
       margin-bottom: 40px;
       line-height: 1.1;
     }
 
     .about-bio {
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Archivo Narrow', sans-serif;
       font-size: clamp(0.9rem, 1.5vw, 1.05rem);
       font-weight: 300;
       line-height: 1.8;
@@ -149,7 +150,7 @@
     }
 
     .about-contact-label {
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Archivo Narrow', sans-serif;
       font-size: 11px;
       font-weight: 300;
       letter-spacing: 0.14em;
@@ -159,7 +160,7 @@
     }
 
     .about-email {
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Archivo Narrow', sans-serif;
       font-size: clamp(0.9rem, 1.5vw, 1rem);
       font-weight: 300;
       letter-spacing: 0.02em;
@@ -220,18 +221,18 @@
     <main class="stream" style="padding-top: 80px;">
 
       <div class="entry">
-        <img src="https://picsum.photos/seed/jp001/1400/920" alt="Object 001" loading="lazy">
-        <div class="entry-meta">
-          <div class="entry-title">Object 001</div>
-          <div class="entry-year">2024</div>
-        </div>
+        <a href="boot-bag.html" class="entry-link">
+          <img src="images/boot-bag/Switch_Designs-021.jpg" alt="Boot Bag" loading="lazy">
+          <div class="entry-meta">
+            <div class="entry-title">Boot Bag</div>
+          </div>
+        </a>
       </div>
 
       <div class="entry">
         <img src="https://picsum.photos/seed/jp002/1400/980" alt="Photo 001" loading="lazy">
         <div class="entry-meta">
           <div class="entry-title">Photo 001</div>
-          <div class="entry-year">2024</div>
         </div>
       </div>
 
@@ -239,7 +240,6 @@
         <img src="https://picsum.photos/seed/jp003/1400/860" alt="Product 001" loading="lazy">
         <div class="entry-meta">
           <div class="entry-title">Product 001</div>
-          <div class="entry-year">2023</div>
         </div>
       </div>
 
@@ -247,7 +247,6 @@
         <img src="https://picsum.photos/seed/jp004/1400/1050" alt="Object 002" loading="lazy">
         <div class="entry-meta">
           <div class="entry-title">Object 002</div>
-          <div class="entry-year">2023</div>
         </div>
       </div>
 
@@ -255,7 +254,6 @@
         <img src="https://picsum.photos/seed/jp005/1400/900" alt="Photo 002" loading="lazy">
         <div class="entry-meta">
           <div class="entry-title">Photo 002</div>
-          <div class="entry-year">2022</div>
         </div>
       </div>
 
@@ -263,7 +261,6 @@
         <img src="https://picsum.photos/seed/jp006/1400/940" alt="Product 002" loading="lazy">
         <div class="entry-meta">
           <div class="entry-title">Product 002</div>
-          <div class="entry-year">2022</div>
         </div>
       </div>
 
