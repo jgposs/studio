@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>James Poss</title>
+  <title>Boot Bag — James Poss</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:wght@700&family=Archivo+Narrow:wght@300;400&display=swap" rel="stylesheet">
@@ -15,7 +15,7 @@
     }
 
     html, body {
-      background-color: #f5f5f4;
+      background-color: #fafaf9;
       color: #1a1a18;
       font-family: 'Archivo Narrow', sans-serif;
       font-weight: 300;
@@ -35,7 +35,6 @@
       z-index: 9999;
       text-transform: uppercase;
       text-decoration: none;
-      cursor: pointer;
     }
 
     /* Fixed nav — top right */
@@ -62,138 +61,6 @@
       color: #1a1a18;
     }
 
-    /* Stream */
-    .stream {
-      padding-left: clamp(24px, 8vw, 112px);
-      padding-right: clamp(24px, 8vw, 112px);
-      padding-bottom: 180px;
-    }
-
-    .entry {
-      margin-bottom: clamp(40px, 6vw, 80px);
-      max-width: 55vw;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .entry img {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-
-    .entry-meta {
-      margin-top: 20px;
-    }
-
-    .entry-title {
-      font-family: 'Archivo Narrow', sans-serif;
-      font-size: clamp(1.1rem, 2vw, 1.5rem);
-      font-weight: 300;
-      letter-spacing: 0.06em;
-      color: #1a1a18;
-    }
-
-    .entry-link {
-      display: block;
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .entry-link img {
-      transition: opacity 0.2s ease;
-    }
-
-    .entry-link:hover img {
-      opacity: 0.88;
-    }
-
-    /* Divider between sections */
-    .stream-divider {
-      width: 32px;
-      height: 1px;
-      background: #d4d3cc;
-      margin: 0 0 clamp(80px, 14vw, 180px);
-    }
-
-    /* About page */
-    .about-page {
-      display: none;
-      min-height: 100vh;
-      padding: 140px clamp(24px, 8vw, 112px) 180px;
-    }
-
-    .about-page.active {
-      display: block;
-    }
-
-    .main-stream.hidden {
-      display: none;
-    }
-
-    .about-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: clamp(40px, 6vw, 96px);
-      align-items: start;
-    }
-
-    .about-left {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-    }
-
-    .about-bio {
-      font-family: 'Archivo Narrow', sans-serif;
-      font-size: clamp(0.95rem, 1.5vw, 1.1rem);
-      font-weight: 300;
-      line-height: 1.8;
-      color: #3a3a36;
-      margin-bottom: 56px;
-    }
-
-    .about-contact-label {
-      font-family: 'Archivo Narrow', sans-serif;
-      font-size: 11px;
-      font-weight: 300;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: #aaa9a2;
-      margin-bottom: 12px;
-    }
-
-    .about-email {
-      font-family: 'Archivo Narrow', sans-serif;
-      font-size: clamp(0.9rem, 1.5vw, 1rem);
-      font-weight: 300;
-      letter-spacing: 0.02em;
-      color: #1a1a18;
-      text-decoration: none;
-      border-bottom: 1px solid #d4d3cc;
-      padding-bottom: 2px;
-      transition: border-color 0.2s ease;
-    }
-
-    .about-email:hover {
-      border-color: #1a1a18;
-    }
-
-    .about-photo {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    @media (max-width: 768px) {
-      .about-inner {
-        grid-template-columns: 1fr;
-      }
-
-      .about-photo {
-        order: -1;
-      }
-    }
     @media (max-width: 600px) {
       .fixed-label {
         font-size: 14px;
@@ -211,107 +78,110 @@
         font-size: 10px;
       }
 
-      .stream {
+      .project-images {
+        max-width: 100%;
         padding-left: 20px;
         padding-right: 20px;
         padding-bottom: 100px;
+        padding-top: 80px;
       }
+    }
 
-      .entry {
-        margin-bottom: 64px;
-      }
+    /* Images */
+    .project-images {
+      padding-left: clamp(24px, 8vw, 112px);
+      padding-right: clamp(24px, 8vw, 112px);
+      padding-bottom: 160px;
+      max-width: 55vw;
+      margin: 0 auto;
+    }
 
-      .about-page {
-        padding: 100px 20px 100px;
-      }
+    .project-image {
+      margin-bottom: clamp(12px, 2vw, 24px);
+    }
+
+    .project-image img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .project-info {
+      margin-top: 16px;
+      margin-bottom: clamp(12px, 2vw, 24px);
+    }
+
+    .project-title {
+      font-family: 'Archivo Narrow', sans-serif;
+      font-size: clamp(0.8rem, 1.2vw, 1rem);
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: #1a1a18;
+      margin-bottom: 8px;
+    }
+
+    .project-desc {
+      font-family: 'Archivo Narrow', sans-serif;
+      font-size: clamp(0.8rem, 1.2vw, 1rem);
+      font-weight: 300;
+      line-height: 1.7;
+      color: #3a3a36;
     }
   </style>
 </head>
 <body>
 
-  <a class="fixed-label" href="#" onclick="showWork(event)">James Poss</a>
+  <a class="fixed-label" href="index.html">James Poss</a>
 
   <nav class="fixed-nav">
-    <a href="#" onclick="showWork(event)">Work</a>
-    <a href="#" onclick="showAbout(event)">About</a>
+    <a href="index.html">Work</a>
+    <a href="index.html#about">About</a>
   </nav>
 
-  <div class="main-stream" id="main-stream">
-    <main class="stream" style="padding-top: 80px;">
+  <div class="project-images" style="padding-top: 100px;">
 
-      <div class="entry">
-        <a href="boot-bag.html" class="entry-link">
-          <img src="images/boot-bag/Switch_Designs-051.jpg" alt="Boot Bag" loading="lazy">
-          <div class="entry-meta">
-            <div class="entry-title">Boot Bag</div>
-          </div>
-        </a>
-      </div>
-
-      <div class="entry">
-        <img src="https://picsum.photos/seed/jp002/1400/980" alt="Photo 001" loading="lazy">
-        <div class="entry-meta">
-          <div class="entry-title">Photo 001</div>
-        </div>
-      </div>
-
-      <div class="entry">
-        <img src="https://picsum.photos/seed/jp003/1400/860" alt="Product 001" loading="lazy">
-        <div class="entry-meta">
-          <div class="entry-title">Product 001</div>
-        </div>
-      </div>
-
-      <div class="entry">
-        <img src="https://picsum.photos/seed/jp004/1400/1050" alt="Object 002" loading="lazy">
-        <div class="entry-meta">
-          <div class="entry-title">Object 002</div>
-        </div>
-      </div>
-
-      <div class="entry">
-        <img src="https://picsum.photos/seed/jp005/1400/900" alt="Photo 002" loading="lazy">
-        <div class="entry-meta">
-          <div class="entry-title">Photo 002</div>
-        </div>
-      </div>
-
-      <div class="entry">
-        <img src="https://picsum.photos/seed/jp006/1400/940" alt="Product 002" loading="lazy">
-        <div class="entry-meta">
-          <div class="entry-title">Product 002</div>
-        </div>
-      </div>
-
-    </main>
-  </div>
-
-  <div class="about-page" id="about-page">
-    <div class="about-inner">
-      <div class="about-left">
-        <p class="about-bio">James Poss is a multidisciplinary creative working across design, product, ecommerce, and visual content.</p>
-        <div class="about-contact-label">Contact</div>
-        <a class="about-email" href="mailto:james_poss@icloud.com">james_poss@icloud.com</a>
-      </div>
-      <img class="about-photo" src="images/P1000596-6.jpeg" alt="James Poss">
+    <div class="project-image">
+      <img src="images/boot-bag/Switch_Designs-021.jpg" alt="Boot Bag front view">
     </div>
+
+    <div class="project-info">
+      <div class="project-title">Boot Bag</div>
+      <p class="project-desc">A ski boot bag with a patented transformational design — built to carry all your essential gear in style. With a single reversible buckle, it converts seamlessly from backpack to slim tote, solving the bulk and awkwardness of traditional boot bags while looking good doing it. 2023.</p>
+    </div>
+
+    <div class="project-image">
+      <img src="images/boot-bag/Switch_Designs-025.jpg" alt="Boot Bag side view">
+    </div>
+
+    <div class="project-image">
+      <img src="images/boot-bag/Switch_Designs-039.jpg" alt="Boot Bag back">
+    </div>
+
+    <div class="project-image">
+      <img src="images/boot-bag/Switch_Designs-049.jpg" alt="Boot Bag top view">
+    </div>
+
+    <div class="project-image">
+      <img src="images/boot-bag/Switch_Designs-051.jpg" alt="Boot Bag open configuration">
+    </div>
+
+    <div class="project-image">
+      <img src="images/boot-bag/Switch_Designs-055.jpg" alt="Boot Bag detail">
+    </div>
+
+    <div class="project-image">
+      <img src="images/boot-bag/Switch_Designs-060.jpg" alt="Boot Bag configuration">
+    </div>
+
+    <div class="project-image">
+      <img src="images/boot-bag/Switch_Designs-097.jpg" alt="Boot Bag tote mode">
+    </div>
+
+    <div class="project-image">
+      <img src="images/boot-bag/Switch_Designs-119.jpg" alt="Boot Bag interior">
+    </div>
+
   </div>
-
-  <script>
-    function showAbout(e) {
-      e.preventDefault();
-      document.getElementById('main-stream').classList.add('hidden');
-      document.getElementById('about-page').classList.add('active');
-      window.scrollTo(0, 0);
-    }
-
-    function showWork(e) {
-      e.preventDefault();
-      document.getElementById('about-page').classList.remove('active');
-      document.getElementById('main-stream').classList.remove('hidden');
-      window.scrollTo(0, 0);
-    }
-  </script>
 
 </body>
 </html>
