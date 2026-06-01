@@ -67,7 +67,7 @@
 
     .project-image,
     .project-image-caption {
-      max-width: 60vw;
+      max-width: 55vw;
       margin-left: auto;
       margin-right: auto;
       margin-bottom: clamp(16px, 3vw, 32px);
@@ -76,7 +76,8 @@
     .project-image img {
       display: block;
       width: 100%;
-      height: auto;
+      max-height: 55vh;
+      object-fit: cover;
     }
 
     .project-image-caption {
@@ -92,7 +93,7 @@
 
     .project-title {
       font-family: 'Inter', sans-serif;
-      font-size: clamp(1rem, 1.6vw, 1.2rem);
+      font-size: clamp(0.7rem, 1vw, 0.85rem);
       font-weight: 400;
       
       color: #1a1a18;
@@ -103,7 +104,7 @@
 
     .project-year {
       font-family: 'Inter', sans-serif;
-      font-size: clamp(1rem, 1.6vw, 1.2rem);
+      font-size: clamp(0.7rem, 1vw, 0.85rem);
       font-weight: 400;
       
       color: #1a1a18;
@@ -111,7 +112,7 @@
 
     .project-desc {
       font-family: 'Inter', sans-serif;
-      font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+      font-size: clamp(0.7rem, 1vw, 0.85rem);
       font-weight: 400;
       line-height: 1.8;
       color: #3a3a36;
