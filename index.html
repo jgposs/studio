@@ -33,8 +33,9 @@
       letter-spacing: 0.06em;
       color: #1a1a18;
       z-index: 9999;
-      pointer-events: none;
       text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
     }
 
     /* Fixed nav — top right */
@@ -69,13 +70,15 @@
     }
 
     .entry {
-      margin-bottom: clamp(80px, 14vw, 180px);
+      margin-bottom: clamp(40px, 6vw, 80px);
     }
 
     .entry img {
       display: block;
       width: 100%;
-      height: auto;
+      max-height: 58vh;
+      object-fit: cover;
+      object-position: center;
     }
 
     .entry-meta {
@@ -225,7 +228,7 @@
 </head>
 <body>
 
-  <div class="fixed-label">James Poss</div>
+  <a class="fixed-label" href="#" onclick="showWork(event)">James Poss</a>
 
   <nav class="fixed-nav">
     <a href="#" onclick="showWork(event)">Work</a>
