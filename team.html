@@ -60,14 +60,19 @@
     }
 
     .project-images {
-      padding-left: clamp(24px, 8vw, 112px);
-      padding-right: clamp(24px, 8vw, 112px);
       padding-top: 80px;
       padding-bottom: 160px;
     }
 
-    .project-video {
+    .project-video,
+    .project-image-caption {
+      max-width: 60vw;
+      margin-left: auto;
+      margin-right: auto;
       margin-bottom: clamp(16px, 3vw, 32px);
+    }
+
+    .project-video {
       position: relative;
       padding-bottom: 56.25%;
       height: 0;
