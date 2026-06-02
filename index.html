@@ -6,126 +6,16 @@
   <title>James Poss</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:wght@700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:wght@700&family=Inter:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="shared.css">
   <style>
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     html, body {
       background-color: #f5f5f4;
       color: #1a1a18;
-      font-family: 'Inter', sans-serif;
-      font-weight: 400;
-      -webkit-font-smoothing: antialiased;
-      font-size: 13px;
-      letter-spacing: -0.01em;
     }
 
-    /* Fixed name — top left */
-    .fixed-label {
-      position: fixed;
-      top: 24px;
-      left: 32px;
-      font-family: 'Libre Bodoni', serif;
-      font-size: 26px;
-      font-weight: 700;
-      
-      color: #1a1a18;
-      z-index: 9999;
-      text-transform: uppercase;
-      text-decoration: none;
-      cursor: pointer;
-    }
+    .fixed-label { cursor: pointer; }
 
-    /* Fixed nav — top right */
-    .fixed-nav {
-      position: fixed;
-      top: 26px;
-      right: 32px;
-      z-index: 9999;
-      display: flex;
-      gap: 28px;
-    }
-
-    .fixed-nav a {
-      font-family: 'Inter', sans-serif;
-      font-size: 14px;
-      font-weight: 400;
-      color: #1a1a18;
-      text-transform: uppercase;
-      text-decoration: none;
-      transition: color 0.2s ease;
-    }
-
-    .fixed-nav a:hover {
-      color: #555;
-    }
-
-    /* Hamburger */
-    .hamburger {
-      display: none;
-      position: fixed;
-      top: 30px;
-      right: 20px;
-      z-index: 10001;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 4px;
-      flex-direction: column;
-      gap: 5px;
-    }
-
-    .hamburger span {
-      display: block;
-      width: 22px;
-      height: 1.5px;
-      background: #1a1a18;
-      transition: all 0.25s ease;
-    }
-
-    .hamburger.open span:nth-child(1) {
-      transform: translateY(6.5px) rotate(45deg);
-    }
-
-    .hamburger.open span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .hamburger.open span:nth-child(3) {
-      transform: translateY(-6.5px) rotate(-45deg);
-    }
-
-    /* Mobile menu overlay */
-    .mobile-menu {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: #fafaf9;
-      z-index: 10000;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 32px;
-    }
-
-    .mobile-menu.open {
-      display: flex;
-    }
-
-    .mobile-menu a {
-      font-family: 'Inter', sans-serif;
-      font-size: 24px;
-      font-weight: 400;
-      color: #1a1a18;
-      text-transform: uppercase;
-      text-decoration: none;
-    }
-
-    /* Stream */
     .stream {
       padding-left: clamp(24px, 8vw, 112px);
       padding-right: clamp(24px, 8vw, 112px);
@@ -151,15 +41,9 @@
       color: inherit;
     }
 
-    .entry-link img {
-      transition: opacity 0.2s ease;
-    }
+    .entry-link img { transition: opacity 0.2s ease; }
+    .entry-link:hover img { opacity: 0.88; }
 
-    .entry-link:hover img {
-      opacity: 0.88;
-    }
-
-    /* Divider between sections */
     .stream-divider {
       width: 32px;
       height: 1px;
@@ -167,20 +51,14 @@
       margin: 0 0 clamp(80px, 14vw, 180px);
     }
 
-    /* About page */
     .about-page {
       display: none;
       min-height: 100vh;
       padding: 140px clamp(24px, 8vw, 112px) 180px;
     }
 
-    .about-page.active {
-      display: block;
-    }
-
-    .main-stream.hidden {
-      display: none;
-    }
+    .about-page.active { display: block; }
+    .main-stream.hidden { display: none; }
 
     .about-inner {
       display: grid;
@@ -196,18 +74,14 @@
     }
 
     .about-bio {
-      font-family: 'Inter', sans-serif;
       font-size: clamp(0.95rem, 1.5vw, 1.1rem);
-      font-weight: 400;
       line-height: 1.8;
       color: #3a3a36;
       margin-bottom: 56px;
     }
 
     .about-contact-label {
-      font-family: 'Inter', sans-serif;
       font-size: 13px;
-      font-weight: 400;
       color: #aaa9a2;
     }
 
@@ -223,50 +97,21 @@
     }
 
     @media (max-width: 768px) {
-      .about-inner {
-        grid-template-columns: 1fr;
-      }
-
-      .about-photo {
-        order: -1;
-      }
-    }
-    @media (max-width: 768px) {
-      .fixed-nav {
-        display: none;
-      }
-
-      .hamburger {
-        display: flex;
-      }
+      .about-inner { grid-template-columns: 1fr; }
+      .about-photo { order: -1; }
     }
 
     @media (max-width: 600px) {
-      .hamburger { top: 19px; }
-      .fixed-label {
-        font-size: 16px;
-        top: 18px;
-        left: 20px;
-      }
-
-      .fixed-nav a {
-        font-size: 10px;
-      }
-
       .stream {
         padding-left: 20px;
         padding-right: 20px;
         padding-bottom: 100px;
       }
-
       .entry {
         margin-bottom: 64px;
         max-width: 100%;
       }
-
-      .about-page {
-        padding: 100px 20px 100px;
-      }
+      .about-page { padding: 100px 20px 100px; }
     }
   </style>
 </head>
@@ -285,9 +130,9 @@
   </button>
 
   <div class="mobile-menu" id="mobile-menu">
-    <a href="#" onclick="showWork(event); toggleMenu()">Work</a>
+    <a href="javascript:void(0)" onclick="showWork(event); toggleMenu()">Work</a>
     <a href="press.html" onclick="toggleMenu()">Press</a>
-    <a href="#" onclick="showAbout(event); toggleMenu()">About</a>
+    <a href="javascript:void(0)" onclick="showAbout(event); toggleMenu()">About</a>
   </div>
 
   <div class="main-stream" id="main-stream">

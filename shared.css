@@ -1,0 +1,114 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  font-size: 13px;
+  letter-spacing: -0.01em;
+}
+
+.fixed-label {
+  position: fixed;
+  top: 24px;
+  left: 32px;
+  font-family: 'Libre Bodoni', serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #1a1a18;
+  z-index: 9999;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.fixed-nav {
+  position: fixed;
+  top: 26px;
+  right: 32px;
+  z-index: 9999;
+  display: flex;
+  gap: 28px;
+}
+
+.fixed-nav a {
+  font-size: 14px;
+  color: #1a1a18;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.fixed-nav a:hover {
+  color: #555;
+}
+
+.hamburger {
+  display: none;
+  position: fixed;
+  top: 30px;
+  right: 20px;
+  z-index: 10001;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: #1a1a18;
+  transition: all 0.25s ease;
+}
+
+.hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: #fafaf9;
+  z-index: 10000;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+
+.mobile-menu.open { display: flex; }
+
+.mobile-menu a {
+  font-size: 24px;
+  color: #1a1a18;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .fixed-nav { display: none; }
+  .hamburger { display: flex; }
+}
+
+@media (max-width: 600px) {
+  .hamburger { top: 19px; }
+  .fixed-label {
+    font-size: 16px;
+    top: 18px;
+    left: 20px;
+  }
+  .fixed-nav {
+    top: 20px;
+    right: 20px;
+    gap: 20px;
+  }
+  .fixed-nav a { font-size: 10px; }
+}
