@@ -211,6 +211,11 @@
       document.getElementById('hamburger').classList.toggle('open');
       document.getElementById('mobile-menu').classList.toggle('open');
     }
+
+    if (window.location.hash === '#about') {
+      document.getElementById('main-stream').classList.add('hidden');
+      document.getElementById('about-page').classList.add('active');
+    }
   </script>
 
 </body>
