@@ -39,6 +39,7 @@
       display: block;
       text-decoration: none;
       color: inherit;
+      overflow: hidden;          /* contains the hover zoom */
     }
 
     /* Thumbnails are pre-cropped square files, so the attribute ratio already
@@ -50,10 +51,29 @@
       aspect-ratio: 1 / 1;
       object-fit: cover;
       background: #e8e7e2;
-      transition: opacity 0.2s ease;
+      transition: transform 0.5s cubic-bezier(0.2, 0.6, 0.2, 1),
+                  opacity 0.3s ease;
     }
 
-    .cell:hover img { opacity: 0.88; }
+    /* The image scales inside a fixed tile, so nothing reflows. Guarded on
+       hover-capable pointers so the state cannot stick after a tap. */
+    @media (hover: hover) {
+      .cell:hover img {
+        transform: scale(1.05);
+        opacity: 0.92;
+      }
+    }
+
+    .cell:focus-visible img {
+      transform: scale(1.05);
+      opacity: 0.92;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .cell img { transition: opacity 0.2s ease; }
+      .cell:hover img,
+      .cell:focus-visible img { transform: none; opacity: 0.82; }
+    }
 
     .cell:focus-visible {
       outline: 2px solid #1a1a18;
