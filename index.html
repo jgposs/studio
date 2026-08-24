@@ -22,59 +22,54 @@
   <style>
     html, body { background-color: #f5f5f4; color: #1a1a18; }
 
-    .stream {
-      padding-left: clamp(24px, 8vw, 112px);
-      padding-right: clamp(24px, 8vw, 112px);
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: clamp(12px, 1.6vw, 24px);
+      max-width: 1100px;
+      margin: 0 auto;
+      /* Fixed gutters, not vw-based: max-width already handles wide screens, and
+         a scaling gutter inside a fixed cap shrinks the cells on big monitors. */
+      padding-left: clamp(20px, 4vw, 40px);
+      padding-right: clamp(20px, 4vw, 40px);
       padding-bottom: 180px;
     }
 
-    .entry {
-      margin-bottom: clamp(40px, 6vw, 80px);
-      max-width: 55vw;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .entry img { display: block; width: 100%; height: auto; }
-
-    .entry-link {
+    .cell {
       display: block;
       text-decoration: none;
       color: inherit;
     }
 
-    .entry-link img { transition: opacity 0.2s ease; }
-
-    /* Remote Vimeo thumbnails: pin the box so a size change can't shift
-       layout. Ratio is per-tile (the MiniDV edit is not 16:9) and contain
-       means a mismatch letterboxes rather than cropping or stretching. */
-    .entry-video img {
-      aspect-ratio: 16 / 9;
-      object-fit: contain;
+    /* Thumbnails are pre-cropped square files, so the attribute ratio already
+       matches and this is belt-and-braces for the two remote video stills. */
+    .cell img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
       background: #e8e7e2;
+      transition: opacity 0.2s ease;
     }
 
-    .entry-video.ratio-minidv img { aspect-ratio: 295 / 216; }
-    .entry-link:hover img { opacity: 0.88; }
+    .cell:hover img { opacity: 0.88; }
 
-    .stream-divider {
-      width: 32px;
-      height: 1px;
-      background: #d4d3cc;
-      margin: 0 0 clamp(80px, 14vw, 180px);
+    .cell:focus-visible {
+      outline: 2px solid #1a1a18;
+      outline-offset: 3px;
     }
 
     @media (max-width: 600px) {
-      .stream {
+      .grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
         padding-left: 20px;
         padding-right: 20px;
         padding-bottom: 100px;
       }
-      .entry {
-        margin-bottom: 64px;
-        max-width: 100%;
-      }
     }
+
   </style>
 </head>
 <body>
@@ -97,61 +92,43 @@
     <a href="/about" onclick="toggleMenu()">About</a>
   </div>
 
-  <main class="stream" style="padding-top: 82px;">
+  <main class="grid" style="padding-top: 82px;">
 
-    <div class="entry">
-      <a href="/boot-bag-black" class="entry-link">
-        <img src="images/boot-bag-black/Switch_Designs-051.jpg" alt="Boot Bag Black" width="2000" height="1510" loading="eager" fetchpriority="high" decoding="async">
-      </a>
-    </div>
+    <a href="/boot-bag-black" class="cell">
+      <img src="images/thumbs/boot-bag-black.jpg" alt="Boot Bag Black" width="1200" height="1200" loading="eager" fetchpriority="high" decoding="async">
+    </a>
 
-    <div class="entry">
-      <a href="/cornice-dresser" class="entry-link">
-        <img src="images/cornice-dresser/UAL Model Garage Studio Shoot-189-1800.jpg" alt="Cornice Dresser" width="1800" height="1800" loading="lazy" decoding="async">
-      </a>
-    </div>
+    <a href="/cornice-dresser" class="cell">
+      <img src="images/thumbs/cornice-dresser.jpg" alt="Cornice Dresser" width="1200" height="1200" loading="eager" fetchpriority="high" decoding="async">
+    </a>
 
-    <div class="entry">
-      <a href="/team" class="entry-link entry-video ratio-minidv">
-        <img src="https://i.vimeocdn.com/video/834928613-e8d59ca57df8a0d1732f67dc6152d8accda0b51acb387f4e4df954a995cee234-d_640?region=us" alt="TEAM — MiniDV" width="295" height="216" loading="lazy" decoding="async">
-      </a>
-    </div>
+    <a href="/team" class="cell">
+      <img src="https://i.vimeocdn.com/video/834928613-e8d59ca57df8a0d1732f67dc6152d8accda0b51acb387f4e4df954a995cee234-d_640?region=us" alt="TEAM — MiniDV" width="640" height="360" loading="lazy" decoding="async">
+    </a>
 
-    <div class="entry">
-      <a href="/boot-bag-coyote" class="entry-link">
-        <img src="images/boot-bag-coyote/Switch_Designs-1029.jpg" alt="Boot Bag Coyote" width="2000" height="1803" loading="lazy" decoding="async">
-      </a>
-    </div>
+    <a href="/boot-bag-coyote" class="cell">
+      <img src="images/thumbs/boot-bag-coyote.jpg" alt="Boot Bag Coyote" width="1200" height="1200" loading="lazy" decoding="async">
+    </a>
 
-    <div class="entry">
-      <a href="/creative-switch-pt1" class="entry-link">
-        <img src="images/creative-switch-pt1/LobozzoPeter_078.jpg" alt="Creative — Switch PT1" width="2000" height="1333" loading="lazy" decoding="async">
-      </a>
-    </div>
+    <a href="/creative-switch-pt1" class="cell">
+      <img src="images/thumbs/creative-switch-pt1.jpg" alt="Creative — Switch PT1" width="1173" height="1173" loading="lazy" decoding="async">
+    </a>
 
-    <div class="entry">
-      <a href="/bullet-glove" class="entry-link">
-        <img src="images/bullet-glove/Switch Gloves-013.jpg" alt="Bullet Glove" width="640" height="800" loading="lazy" decoding="async">
-      </a>
-    </div>
+    <a href="/bullet-glove" class="cell">
+      <img src="images/thumbs/bullet-glove.jpg" alt="Bullet Glove" width="627" height="627" loading="lazy" decoding="async">
+    </a>
 
-    <div class="entry">
-      <a href="/switch-team-edit" class="entry-link entry-video">
-        <img src="https://i.vimeocdn.com/video/748794637-43252e7d2a9db9283da4d3371c4625923daf96467131232dc9c94d0e88b429db-d_640?region=us" alt="Switch Team Edit" width="640" height="360" loading="lazy" decoding="async">
-      </a>
-    </div>
+    <a href="/switch-team-edit" class="cell">
+      <img src="https://i.vimeocdn.com/video/748794637-43252e7d2a9db9283da4d3371c4625923daf96467131232dc9c94d0e88b429db-d_640?region=us" alt="Switch Team Edit" width="640" height="360" loading="lazy" decoding="async">
+    </a>
 
-    <div class="entry">
-      <a href="/creative-switch-pt2" class="entry-link">
-        <img src="images/creative-switch-pt2/LobozzoPeter-2.jpg" alt="Creative — Switch PT2" width="1067" height="1600" loading="lazy" decoding="async">
-      </a>
-    </div>
+    <a href="/creative-switch-pt2" class="cell">
+      <img src="images/thumbs/creative-switch-pt2.jpg" alt="Creative — Switch PT2" width="864" height="864" loading="lazy" decoding="async">
+    </a>
 
-    <div class="entry">
-      <a href="/creative-switch-pt3" class="entry-link">
-        <img src="images/creative-switch-pt3/Val d'Isere Switch Shoot 1.jpg" alt="Creative — Switch PT3" width="533" height="800" loading="lazy" decoding="async">
-      </a>
-    </div>
+    <a href="/creative-switch-pt3" class="cell">
+      <img src="images/thumbs/creative-switch-pt3.jpg" alt="Creative — Switch PT3" width="1146" height="1146" loading="lazy" decoding="async">
+    </a>
 
   </main>
 
