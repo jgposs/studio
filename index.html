@@ -49,10 +49,12 @@
        layout. Ratio is per-tile (the MiniDV edit is not 16:9) and contain
        means a mismatch letterboxes rather than cropping or stretching. */
     .entry-video img {
-      aspect-ratio: var(--thumb-ratio, 16 / 9);
+      aspect-ratio: 16 / 9;
       object-fit: contain;
       background: #e8e7e2;
     }
+
+    .entry-video.ratio-minidv img { aspect-ratio: 295 / 216; }
     .entry-link:hover img { opacity: 0.88; }
 
     .stream-divider {
@@ -110,7 +112,7 @@
     </div>
 
     <div class="entry">
-      <a href="/team" class="entry-link entry-video" style="--thumb-ratio: 295 / 216">
+      <a href="/team" class="entry-link entry-video ratio-minidv">
         <img src="https://i.vimeocdn.com/video/834928613-e8d59ca57df8a0d1732f67dc6152d8accda0b51acb387f4e4df954a995cee234-d_640?region=us" alt="TEAM — MiniDV" width="295" height="216" loading="lazy" decoding="async">
       </a>
     </div>

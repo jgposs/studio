@@ -66,11 +66,25 @@ html, body { background-color: #fafaf9; color: #1a1a18; }
 /* Photo-essay pages run images at full column width, uncropped. */
 .project-images.full-bleed .project-image img { max-height: none; }
 
-/* Ratio comes from the video's real dimensions; pages override the variable. */
+/* Ratio comes from the video's real dimensions; pages opt in with a modifier.
+   Deliberately no var() inside aspect-ratio: a browser can support the
+   property yet fail to substitute a variable into it, which would pass the
+   @supports test below and then collapse the box to nothing. Plain values
+   keep the @supports guard honest. */
 .project-video {
   position: relative;
-  aspect-ratio: var(--video-ratio, 16 / 9);
   overflow: hidden;
+  padding-bottom: 56.25%;              /* 16:9 fallback */
+}
+
+.project-video.ratio-minidv { padding-bottom: 73.171%; }   /* 328 x 240 */
+
+@supports (aspect-ratio: 16 / 9) {
+  .project-video {
+    padding-bottom: 0;
+    aspect-ratio: 16 / 9;
+  }
+  .project-video.ratio-minidv { aspect-ratio: 328 / 240; }
 }
 
 .project-video iframe {
