@@ -66,10 +66,10 @@ html, body { background-color: #fafaf9; color: #1a1a18; }
 /* Photo-essay pages run images at full column width, uncropped. */
 .project-images.full-bleed .project-image img { max-height: none; }
 
+/* Ratio comes from the video's real dimensions; pages override the variable. */
 .project-video {
   position: relative;
-  padding-bottom: 56.25%;
-  height: 0;
+  aspect-ratio: var(--video-ratio, 16 / 9);
   overflow: hidden;
 }
 
@@ -101,5 +101,4 @@ html, body { background-color: #fafaf9; color: #1a1a18; }
     gap: 20px;
   }
   .project-images { padding: 0 20px 100px; }
-  .project-video { padding-bottom: 75%; }
 }
