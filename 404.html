@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found — James Poss</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:wght@700&family=Inter:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/shared.css">
+  <style>
+    html, body { background-color: #f5f5f4; color: #1a1a18; }
+
+    .notfound {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      padding: 82px 24px;
+      text-align: center;
+    }
+
+    .notfound h1 {
+      font-family: 'Libre Bodoni', serif;
+      font-size: clamp(48px, 10vw, 88px);
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .notfound p {
+      font-size: 13px;
+      color: #888880;
+      letter-spacing: 0.02em;
+    }
+
+    .notfound a {
+      font-size: 13px;
+      color: #1a1a18;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      border-bottom: 1px solid #d4d3cc;
+      padding-bottom: 2px;
+      transition: border-color 0.2s ease;
+    }
+
+    .notfound a:hover { border-color: #1a1a18; }
+  </style>
+</head>
+<body>
+
+  <a class="fixed-label" href="/">James Poss</a>
+
+  <nav class="fixed-nav">
+    <a href="/">Work</a>
+    <a href="/press">Press</a>
+    <a href="/about">About</a>
+  </nav>
+
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="/" onclick="toggleMenu()">Work</a>
+    <a href="/press" onclick="toggleMenu()">Press</a>
+    <a href="/about" onclick="toggleMenu()">About</a>
+  </div>
+
+  <main class="notfound">
+    <h1>404</h1>
+    <p>This page doesn&rsquo;t exist.</p>
+    <a href="/">&#8249; BACK TO WORK</a>
+  </main>
+
+  <script>
+    (function () {
+      var btn = document.getElementById('hamburger');
+      var menu = document.getElementById('mobile-menu');
+      function setOpen(open) {
+        btn.classList.toggle('open', open);
+        menu.classList.toggle('open', open);
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      }
+      window.toggleMenu = function () {
+        setOpen(!menu.classList.contains('open'));
+      };
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') setOpen(false);
+      });
+    })();
+  </script>
+
+</body>
+</html>
