@@ -4,6 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About — James Poss</title>
+  <meta name="description" content="James Poss is a multidisciplinary creative working across design, product, ecommerce, and visual content. Founder of Switch Designs and a patent holder in bag design.">
+  <link rel="canonical" href="https://jamesposs.studio/about">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="James Poss">
+  <meta property="og:title" content="About — James Poss">
+  <meta property="og:description" content="James Poss is a multidisciplinary creative working across design, product, ecommerce, and visual content. Founder of Switch Designs and a patent holder in bag design.">
+  <meta property="og:url" content="https://jamesposs.studio/about">
+  <meta property="og:image" content="https://jamesposs.studio/images/James%20Poss%20091-LINKEDIN_BW_LIGHTER.jpg">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:wght@700&family=Inter:wght@400&display=swap" rel="stylesheet">
@@ -64,7 +74,7 @@
     <a href="/about">About</a>
   </nav>
 
-  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
     <span></span><span></span><span></span>
   </button>
 
@@ -79,15 +89,26 @@
       <div>
         <p class="about-bio">James Poss is a multidisciplinary creative working across design, product, ecommerce, and visual content.<br><br>James previously founded Switch Designs to bring innovation and style to bags for the outdoors. He holds a patent for a boot bag with a unique transformational design that was named the #1 ski pack of 2018 by Freeskier Magazine.<br><br>In 2020, James won an A'Design Iron Award for Cornice, a sculptural clothing dresser. His work has been featured in Bloomberg Businessweek, Outdoor Retailer Magazine, Gear Patrol, and more.<br><br>Contact: <a href="mailto:james_poss@icloud.com" class="about-email">james_poss@icloud.com</a></p>
       </div>
-      <img class="about-photo" src="/images/James Poss 091-LINKEDIN_BW_LIGHTER.jpg" alt="James Poss">
+      <img class="about-photo" src="/images/James Poss 091-LINKEDIN_BW_LIGHTER.jpg" alt="James Poss" width="800" height="800" loading="eager" fetchpriority="high" decoding="async">
     </div>
   </div>
 
   <script>
-    function toggleMenu() {
-      document.getElementById('hamburger').classList.toggle('open');
-      document.getElementById('mobile-menu').classList.toggle('open');
-    }
+    (function () {
+      var btn = document.getElementById('hamburger');
+      var menu = document.getElementById('mobile-menu');
+      function setOpen(open) {
+        btn.classList.toggle('open', open);
+        menu.classList.toggle('open', open);
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      }
+      window.toggleMenu = function () {
+        setOpen(!menu.classList.contains('open'));
+      };
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') setOpen(false);
+      });
+    })();
   </script>
 
 </body>

@@ -4,6 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Press — James Poss</title>
+  <meta name="description" content="Selected press for James Poss and Switch Designs, featured in Bloomberg Businessweek, Gear Patrol, Freeskier, and Outdoor Retailer Magazine.">
+  <link rel="canonical" href="https://jamesposs.studio/press">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="James Poss">
+  <meta property="og:title" content="Press — James Poss">
+  <meta property="og:description" content="Selected press for James Poss and Switch Designs, featured in Bloomberg Businessweek, Gear Patrol, Freeskier, and Outdoor Retailer Magazine.">
+  <meta property="og:url" content="https://jamesposs.studio/press">
+  <meta property="og:image" content="https://jamesposs.studio/images/LobozzoPeter_049.jpg">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:wght@700&family=Inter:wght@400&display=swap" rel="stylesheet">
@@ -60,7 +70,7 @@
     <a href="/about">About</a>
   </nav>
 
-  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
     <span></span><span></span><span></span>
   </button>
 
@@ -72,7 +82,7 @@
 
   <div class="press-page">
 
-    <img src="/images/LobozzoPeter_049.jpg" alt="Switch Designs" class="press-hero">
+    <img src="/images/LobozzoPeter_049.jpg" alt="Switch Designs" class="press-hero" width="2048" height="1365" loading="eager" fetchpriority="high" decoding="async">
 
     <div class="press-item">
       <a class="press-title" href="https://www.bloomberg.com/news/articles/2020-10-08/switch-designs-ski-boot-bag-a-radical-redesign-as-swanky-luggage" target="_blank" rel="noopener">The Humble Ski Boot Bag Gets Redesigned as Swanky Luggage</a>
@@ -127,10 +137,21 @@
   </div>
 
   <script>
-    function toggleMenu() {
-      document.getElementById('hamburger').classList.toggle('open');
-      document.getElementById('mobile-menu').classList.toggle('open');
-    }
+    (function () {
+      var btn = document.getElementById('hamburger');
+      var menu = document.getElementById('mobile-menu');
+      function setOpen(open) {
+        btn.classList.toggle('open', open);
+        menu.classList.toggle('open', open);
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      }
+      window.toggleMenu = function () {
+        setOpen(!menu.classList.contains('open'));
+      };
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') setOpen(false);
+      });
+    })();
   </script>
 
 </body>

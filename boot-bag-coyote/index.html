@@ -4,21 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Boot Bag Coyote — James Poss</title>
+  <meta name="description" content="A ski boot bag with a patented transformational design that converts from backpack to tote, in coyote 500D Cordura with elk leather trim.">
+  <link rel="canonical" href="https://jamesposs.studio/boot-bag-coyote">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="James Poss">
+  <meta property="og:title" content="Boot Bag — Coyote — James Poss">
+  <meta property="og:description" content="A ski boot bag with a patented transformational design that converts from backpack to tote, in coyote 500D Cordura with elk leather trim.">
+  <meta property="og:url" content="https://jamesposs.studio/boot-bag-coyote">
+  <meta property="og:image" content="https://jamesposs.studio/images/boot-bag-coyote/Switch_Designs-1016.jpg">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:wght@700&family=Inter:wght@400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/shared.css">
   <link rel="stylesheet" href="/project.css">
-  <style>
-    html, body { background-color: #fafaf9; color: #1a1a18; height: 100%; }
-    .project-image img {
-      display: block;
-      width: 100%;
-      max-height: 70vh;
-      object-fit: contain;
-      object-position: left;
-    }
-  </style>
 </head>
 <body>
 
@@ -29,11 +29,11 @@
     <a href="/press">Press</a>
     <a href="/about">About</a>
   </nav>
-  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
   <div class="mobile-menu" id="mobile-menu">
-    <a href="/">Work</a>
-    <a href="/press">Press</a>
-    <a href="/about">About</a>
+    <a href="/" onclick="toggleMenu()">Work</a>
+    <a href="/press" onclick="toggleMenu()">Press</a>
+    <a href="/about" onclick="toggleMenu()">About</a>
   </div>
 
   <div class="project-layout">
@@ -52,31 +52,31 @@
 
     <div class="project-images">
       <div class="project-image">
-        <img src="/images/boot-bag-coyote/Switch_Designs-1016.jpg" alt="Boot Bag Coyote">
+        <img src="/images/boot-bag-coyote/Switch_Designs-1016.jpg" alt="Boot Bag Coyote" width="2000" height="1803" loading="eager" fetchpriority="high" decoding="async">
       </div>
       <div class="project-image">
-        <img src="/images/boot-bag-coyote/Switch_Designs-1029.jpg" alt="Boot Bag Coyote">
+        <img src="/images/boot-bag-coyote/Switch_Designs-1029.jpg" alt="Boot Bag Coyote" width="2000" height="1803" loading="lazy" decoding="async">
       </div>
       <div class="project-image">
-        <img src="/images/boot-bag-coyote/Switch_Designs-1034.jpg" alt="Boot Bag Coyote">
+        <img src="/images/boot-bag-coyote/Switch_Designs-1034.jpg" alt="Boot Bag Coyote" width="2000" height="1803" loading="lazy" decoding="async">
       </div>
       <div class="project-image">
-        <img src="/images/boot-bag-coyote/Switch_Designs-1066.jpg" alt="Boot Bag Coyote">
+        <img src="/images/boot-bag-coyote/Switch_Designs-1066.jpg" alt="Boot Bag Coyote" width="2000" height="1510" loading="lazy" decoding="async">
       </div>
       <div class="project-image">
-        <img src="/images/boot-bag-coyote/Switch_Designs-1068.jpg" alt="Boot Bag Coyote">
+        <img src="/images/boot-bag-coyote/Switch_Designs-1068.jpg" alt="Boot Bag Coyote" width="2000" height="1510" loading="lazy" decoding="async">
       </div>
       <div class="project-image">
-        <img src="/images/boot-bag-coyote/Switch_Designs-1070.jpg" alt="Boot Bag Coyote">
+        <img src="/images/boot-bag-coyote/Switch_Designs-1070.jpg" alt="Boot Bag Coyote" width="2000" height="1510" loading="lazy" decoding="async">
       </div>
       <div class="project-image">
-        <img src="/images/boot-bag-coyote/Switch_Designs-1078.jpg" alt="Boot Bag Coyote">
+        <img src="/images/boot-bag-coyote/Switch_Designs-1078.jpg" alt="Boot Bag Coyote" width="2000" height="1510" loading="lazy" decoding="async">
       </div>
       <div class="project-image">
-        <img src="/images/boot-bag-coyote/Switch_Designs-1089.jpg" alt="Boot Bag Coyote">
+        <img src="/images/boot-bag-coyote/Switch_Designs-1089.jpg" alt="Boot Bag Coyote" width="1855" height="2000" loading="lazy" decoding="async">
       </div>
       <div class="project-image">
-        <img src="/images/boot-bag-coyote/Switch_Designs-1111.jpg" alt="Boot Bag Coyote">
+        <img src="/images/boot-bag-coyote/Switch_Designs-1111.jpg" alt="Boot Bag Coyote" width="2000" height="1335" loading="lazy" decoding="async">
       </div>
     </div>
 
@@ -84,6 +84,22 @@
 
   </div>
 
-  <script>function toggleMenu(){document.getElementById("hamburger").classList.toggle("open");document.getElementById("mobile-menu").classList.toggle("open");}</script>
+  <script>
+    (function () {
+      var btn = document.getElementById('hamburger');
+      var menu = document.getElementById('mobile-menu');
+      function setOpen(open) {
+        btn.classList.toggle('open', open);
+        menu.classList.toggle('open', open);
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      }
+      window.toggleMenu = function () {
+        setOpen(!menu.classList.contains('open'));
+      };
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') setOpen(false);
+      });
+    })();
+  </script>
 </body>
 </html>

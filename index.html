@@ -4,10 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>James Poss</title>
+  <meta name="description" content="Portfolio of James Poss, a multidisciplinary creative working across design, product, ecommerce, and visual content.">
+  <link rel="canonical" href="https://jamesposs.studio/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="James Poss">
+  <meta property="og:title" content="James Poss">
+  <meta property="og:description" content="Portfolio of James Poss, a multidisciplinary creative working across design, product, ecommerce, and visual content.">
+  <meta property="og:url" content="https://jamesposs.studio/">
+  <meta property="og:image" content="https://jamesposs.studio/images/boot-bag-black/Switch_Designs-051.jpg">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://i.vimeocdn.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:wght@700&family=Inter:wght@400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="shared.css">
+  <link rel="stylesheet" href="/shared.css">
   <style>
     html, body { background-color: #f5f5f4; color: #1a1a18; }
 
@@ -33,6 +44,13 @@
     }
 
     .entry-link img { transition: opacity 0.2s ease; }
+
+    /* Remote Vimeo thumbnails: pin the box so a size change can't shift layout. */
+    .entry-video img {
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      background: #e8e7e2;
+    }
     .entry-link:hover img { opacity: 0.88; }
 
     .stream-divider {
@@ -65,7 +83,7 @@
     <a href="/about">About</a>
   </nav>
 
-  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
     <span></span><span></span><span></span>
   </button>
 
@@ -79,65 +97,76 @@
 
     <div class="entry">
       <a href="/boot-bag-black" class="entry-link">
-        <img src="images/boot-bag-black/Switch_Designs-051.jpg" alt="Boot Bag Black" loading="lazy">
+        <img src="images/boot-bag-black/Switch_Designs-051.jpg" alt="Boot Bag Black" width="2000" height="1510" loading="eager" fetchpriority="high" decoding="async">
       </a>
     </div>
 
     <div class="entry">
       <a href="/cornice-dresser" class="entry-link">
-        <img src="images/cornice-dresser/UAL Model Garage Studio Shoot-189-1800.jpg" alt="Cornice Dresser" loading="lazy">
+        <img src="images/cornice-dresser/UAL Model Garage Studio Shoot-189-1800.jpg" alt="Cornice Dresser" width="1800" height="1800" loading="lazy" decoding="async">
       </a>
     </div>
 
     <div class="entry">
-      <a href="/team" class="entry-link">
-        <img src="https://i.vimeocdn.com/video/834928613-e8d59ca57df8a0d1732f67dc6152d8accda0b51acb387f4e4df954a995cee234-d_640?region=us" alt="TEAM — MiniDV" loading="lazy">
+      <a href="/team" class="entry-link entry-video">
+        <img src="https://i.vimeocdn.com/video/834928613-e8d59ca57df8a0d1732f67dc6152d8accda0b51acb387f4e4df954a995cee234-d_640?region=us" alt="TEAM — MiniDV" width="640" height="360" loading="lazy" decoding="async">
       </a>
     </div>
 
     <div class="entry">
       <a href="/boot-bag-coyote" class="entry-link">
-        <img src="images/boot-bag-coyote/Switch_Designs-1029.jpg" alt="Boot Bag Coyote" loading="lazy">
+        <img src="images/boot-bag-coyote/Switch_Designs-1029.jpg" alt="Boot Bag Coyote" width="2000" height="1803" loading="lazy" decoding="async">
       </a>
     </div>
 
     <div class="entry">
       <a href="/creative-switch-pt1" class="entry-link">
-        <img src="images/creative-switch-pt1/LobozzoPeter_078.jpg" alt="Creative — Switch PT1" loading="lazy">
+        <img src="images/creative-switch-pt1/LobozzoPeter_078.jpg" alt="Creative — Switch PT1" width="2000" height="1333" loading="lazy" decoding="async">
       </a>
     </div>
 
     <div class="entry">
       <a href="/bullet-glove" class="entry-link">
-        <img src="images/bullet-glove/Switch Gloves-013.jpg" alt="Bullet Glove" loading="lazy">
+        <img src="images/bullet-glove/Switch Gloves-013.jpg" alt="Bullet Glove" width="640" height="800" loading="lazy" decoding="async">
       </a>
     </div>
 
     <div class="entry">
-      <a href="/switch-team-edit" class="entry-link">
-        <img src="https://i.vimeocdn.com/video/748794637-43252e7d2a9db9283da4d3371c4625923daf96467131232dc9c94d0e88b429db-d_640?region=us" alt="Switch Team Edit" loading="lazy">
+      <a href="/switch-team-edit" class="entry-link entry-video">
+        <img src="https://i.vimeocdn.com/video/748794637-43252e7d2a9db9283da4d3371c4625923daf96467131232dc9c94d0e88b429db-d_640?region=us" alt="Switch Team Edit" width="640" height="360" loading="lazy" decoding="async">
       </a>
     </div>
 
     <div class="entry">
       <a href="/creative-switch-pt2" class="entry-link">
-        <img src="images/creative-switch-pt2/LobozzoPeter-2.jpg" alt="Creative — Switch PT2" loading="lazy">
+        <img src="images/creative-switch-pt2/LobozzoPeter-2.jpg" alt="Creative — Switch PT2" width="1067" height="1600" loading="lazy" decoding="async">
       </a>
     </div>
 
     <div class="entry">
       <a href="/creative-switch-pt3" class="entry-link">
-        <img src="images/creative-switch-pt3/Val d'Isere Switch Shoot 1.jpg" alt="Creative — Switch PT3" loading="lazy">
+        <img src="images/creative-switch-pt3/Val d'Isere Switch Shoot 1.jpg" alt="Creative — Switch PT3" width="533" height="800" loading="lazy" decoding="async">
       </a>
     </div>
 
   </main>
 
   <script>
-    function toggleMenu() {
-      document.getElementById('hamburger').classList.toggle('open');
-      document.getElementById('mobile-menu').classList.toggle('open');
-    }
+    (function () {
+      var btn = document.getElementById('hamburger');
+      var menu = document.getElementById('mobile-menu');
+      function setOpen(open) {
+        btn.classList.toggle('open', open);
+        menu.classList.toggle('open', open);
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      }
+      window.toggleMenu = function () {
+        setOpen(!menu.classList.contains('open'));
+      };
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') setOpen(false);
+      });
+    })();
   </script>
 
 </body>

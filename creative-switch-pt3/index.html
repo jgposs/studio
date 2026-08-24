@@ -4,19 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Creative — Switch PT3 — James Poss</title>
+  <meta name="description" content="Photo assets for Switch Designs, on location in Val d’Isère, France. Photography and production by James Poss.">
+  <link rel="canonical" href="https://jamesposs.studio/creative-switch-pt3">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="James Poss">
+  <meta property="og:title" content="Creative — Switch PT3 — James Poss">
+  <meta property="og:description" content="Photo assets for Switch Designs, on location in Val d’Isère, France. Photography and production by James Poss.">
+  <meta property="og:url" content="https://jamesposs.studio/creative-switch-pt3">
+  <meta property="og:image" content="https://jamesposs.studio/images/creative-switch-pt3/Val%20d%27Isere%20Switch%20Shoot%201.jpg">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:wght@700&family=Inter:wght@400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/shared.css">
   <link rel="stylesheet" href="/project.css">
-  <style>
-    html, body { background-color: #fafaf9; color: #1a1a18; height: 100%; }
-    .project-image img {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-  </style>
 </head>
 <body>
 
@@ -27,11 +29,11 @@
     <a href="/press">Press</a>
     <a href="/about">About</a>
   </nav>
-  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
   <div class="mobile-menu" id="mobile-menu">
-    <a href="/">Work</a>
-    <a href="/press">Press</a>
-    <a href="/about">About</a>
+    <a href="/" onclick="toggleMenu()">Work</a>
+    <a href="/press" onclick="toggleMenu()">Press</a>
+    <a href="/about" onclick="toggleMenu()">About</a>
   </div>
 
   <div class="project-layout">
@@ -48,27 +50,27 @@
       </div>
     </aside>
 
-    <div class="project-images">
+    <div class="project-images full-bleed">
       <div class="project-image">
-        <img src="/images/creative-switch-pt3/Val d'Isere Switch Shoot 1.jpg" alt="Creative Switch PT3">
+        <img src="/images/creative-switch-pt3/Val d'Isere Switch Shoot 1.jpg" alt="Creative Switch PT3" width="533" height="800" loading="eager" fetchpriority="high" decoding="async">
       </div>
       <div class="project-image">
-        <img src="/images/creative-switch-pt3/Val d'Isere Switch Shoot 2.jpg" alt="Creative Switch PT3">
+        <img src="/images/creative-switch-pt3/Val d'Isere Switch Shoot 2.jpg" alt="Creative Switch PT3" width="800" height="533" loading="lazy" decoding="async">
       </div>
       <div class="project-image">
-        <img src="/images/creative-switch-pt3/Val d'Isere Switch Shoot 3.jpg" alt="Creative Switch PT3">
+        <img src="/images/creative-switch-pt3/Val d'Isere Switch Shoot 3.jpg" alt="Creative Switch PT3" width="533" height="800" loading="lazy" decoding="async">
       </div>
       <div class="project-image">
-        <img src="/images/creative-switch-pt3/Val d'Isere Switch Shoot 4.jpg" alt="Creative Switch PT3">
+        <img src="/images/creative-switch-pt3/Val d'Isere Switch Shoot 4.jpg" alt="Creative Switch PT3" width="800" height="533" loading="lazy" decoding="async">
       </div>
       <div class="project-image">
-        <img src="/images/creative-switch-pt3/Val d'Isere Switch Shoot 5.jpg" alt="Creative Switch PT3">
+        <img src="/images/creative-switch-pt3/Val d'Isere Switch Shoot 5.jpg" alt="Creative Switch PT3" width="1333" height="2000" loading="lazy" decoding="async">
       </div>
       <div class="project-image">
-        <img src="/images/creative-switch-pt3/Val d'Isere Switch Shoot 6.jpg" alt="Creative Switch PT3">
+        <img src="/images/creative-switch-pt3/Val d'Isere Switch Shoot 6.jpg" alt="Creative Switch PT3" width="533" height="800" loading="lazy" decoding="async">
       </div>
       <div class="project-image">
-        <img src="/images/creative-switch-pt3/Val d'Isere Switch Shoot 7.jpg" alt="Creative Switch PT3">
+        <img src="/images/creative-switch-pt3/Val d'Isere Switch Shoot 7.jpg" alt="Creative Switch PT3" width="533" height="800" loading="lazy" decoding="async">
       </div>
     </div>
 
@@ -76,6 +78,22 @@
 
   </div>
 
-  <script>function toggleMenu(){document.getElementById("hamburger").classList.toggle("open");document.getElementById("mobile-menu").classList.toggle("open");}</script>
+  <script>
+    (function () {
+      var btn = document.getElementById('hamburger');
+      var menu = document.getElementById('mobile-menu');
+      function setOpen(open) {
+        btn.classList.toggle('open', open);
+        menu.classList.toggle('open', open);
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      }
+      window.toggleMenu = function () {
+        setOpen(!menu.classList.contains('open'));
+      };
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') setOpen(false);
+      });
+    })();
+  </script>
 </body>
 </html>

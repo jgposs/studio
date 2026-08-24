@@ -4,26 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Switch Team Edit — James Poss</title>
+  <meta name="description" content="A ski edit filmed at Switch Week in Colorado, featuring Magnus Granér, Cody Cirillo, Will Berman, Sean Jordan and Sam Winship.">
+  <link rel="canonical" href="https://jamesposs.studio/switch-team-edit">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="James Poss">
+  <meta property="og:title" content="Switch Team Edit — James Poss">
+  <meta property="og:description" content="A ski edit filmed at Switch Week in Colorado, featuring Magnus Granér, Cody Cirillo, Will Berman, Sean Jordan and Sam Winship.">
+  <meta property="og:url" content="https://jamesposs.studio/switch-team-edit">
+  <meta property="og:image" content="https://jamesposs.studio/images/creative-switch-pt2/LobozzoPeter-2.jpg">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:wght@700&family=Inter:wght@400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/shared.css">
   <link rel="stylesheet" href="/project.css">
-  <style>
-    html, body { background-color: #fafaf9; color: #1a1a18; height: 100%; }
-    .project-video {
-      position: relative;
-      padding-bottom: 56.25%;
-      height: 0;
-      overflow: hidden;
-    }
-    .project-video iframe {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      border: 0;
-    }
-  </style>
 </head>
 <body>
 
@@ -34,11 +29,11 @@
     <a href="/press">Press</a>
     <a href="/about">About</a>
   </nav>
-  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
   <div class="mobile-menu" id="mobile-menu">
-    <a href="/">Work</a>
-    <a href="/press">Press</a>
-    <a href="/about">About</a>
+    <a href="/" onclick="toggleMenu()">Work</a>
+    <a href="/press" onclick="toggleMenu()">Press</a>
+    <a href="/about" onclick="toggleMenu()">About</a>
   </div>
 
   <div class="project-layout">
@@ -57,7 +52,7 @@
 
     <div class="project-images">
       <div class="project-video">
-        <iframe src="https://player.vimeo.com/video/308602368?title=0&byline=0&portrait=0" allowfullscreen></iframe>
+        <iframe src="https://player.vimeo.com/video/308602368?title=0&byline=0&portrait=0" title="Switch Team Edit" loading="lazy" allowfullscreen></iframe>
       </div>
     </div>
 
@@ -65,6 +60,22 @@
 
   </div>
 
-  <script>function toggleMenu(){document.getElementById("hamburger").classList.toggle("open");document.getElementById("mobile-menu").classList.toggle("open");}</script>
+  <script>
+    (function () {
+      var btn = document.getElementById('hamburger');
+      var menu = document.getElementById('mobile-menu');
+      function setOpen(open) {
+        btn.classList.toggle('open', open);
+        menu.classList.toggle('open', open);
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      }
+      window.toggleMenu = function () {
+        setOpen(!menu.classList.contains('open'));
+      };
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') setOpen(false);
+      });
+    })();
+  </script>
 </body>
 </html>
