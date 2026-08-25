@@ -4,6 +4,13 @@
   padding: 0;
 }
 
+html {
+  /* Always reserve the scrollbar gutter. Without this, a page that does not
+     scroll (about) and one that does (press) centre their content 15px apart,
+     so navigating between them visibly jumps. */
+  scrollbar-gutter: stable;
+}
+
 html, body {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
