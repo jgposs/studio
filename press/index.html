@@ -56,7 +56,7 @@
     .press-list {
       display: flex;
       flex-direction: column;
-      gap: 44px;
+      gap: 38px;
     }
 
     .press-item a {
@@ -70,11 +70,11 @@
        wordmark. */
     .press-outlet {
       display: block;
-      font-weight: 700;
-      font-size: clamp(19px, 2.5vw, 26px);
-      line-height: 1.12;
+      font-weight: 600;
+      font-size: clamp(16px, 1.9vw, 19px);
+      line-height: 1.2;
       text-transform: uppercase;
-      letter-spacing: 0.01em;
+      letter-spacing: 0.045em;
       color: #1a1a18;
       transition: color 0.2s ease;
     }
@@ -93,7 +93,7 @@
 
     .press-headline {
       display: block;
-      margin-top: 8px;
+      margin-top: 7px;
       font-size: 14px;
       line-height: 1.55;
       color: #6f6f68;
@@ -109,41 +109,10 @@
     .press-item a:focus-visible { outline: 2px solid #1a1a18; outline-offset: 4px; }
 
     /* One item breaks the rhythm: the only ranked, verifiable claim. */
-    .press-callout {
-      display: block;
-      margin-bottom: 56px;
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .press-callout:focus-visible { outline: 2px solid #1a1a18; outline-offset: 4px; }
-
-    .quote-mark {
-      font-weight: 700;
-      font-size: clamp(27px, 4.1vw, 38px);
-      line-height: 1.18;
-      letter-spacing: -0.015em;
-      color: #1a1a18;
-      display: block;
-      transition: color 0.2s ease;
-    }
-
-    .quote-attr {
-      display: block;
-      margin-top: 14px;
-      font-size: 12px;
-      letter-spacing: 0.02em;
-      color: #8f8f87;
-    }
-
-    .press-callout:hover .quote-mark,
-    .press-callout:focus-visible .quote-mark { color: #57574f; }
-
     @media (max-width: 600px) {
       .press-page { padding: 82px 20px 100px; }
       .press-hero-figure { margin-bottom: 36px; }
-      .press-list { gap: 34px; }
-      .press-callout { margin-bottom: 40px; }
+      .press-list { gap: 30px; }
     }
   </style>
 </head>
@@ -178,11 +147,6 @@
            loading="eager" fetchpriority="high" decoding="async">
     </figure>
 
-    <a class="press-callout" href="https://freeskier.com/stories/top-6-ski-packs-2018-2019" target="_blank" rel="noopener">
-      <span class="quote-mark">Ranked&nbsp;#1 of &ldquo;The 6 best ski packs of 2018&ndash;2019&rdquo;</span>
-      <span class="quote-attr">Freeskier Magazine</span>
-    </a>
-
     <div class="press-list">
 
       <div class="press-item">
@@ -198,9 +162,9 @@
         </a>
       </div>
       <div class="press-item">
-        <a href="https://freeskier.com/gear/switch-designs-the-boot-bag-2018-19" target="_blank" rel="noopener">
+        <a href="https://freeskier.com/stories/top-6-ski-packs-2018-2019" target="_blank" rel="noopener">
           <span class="press-outlet">Freeskier Magazine</span>
-          <span class="press-headline">Buyer&rsquo;s Guide Gear Spotlight</span>
+          <span class="press-headline">Ranked #1 of the Six Best Ski Packs</span>
         </a>
       </div>
       <div class="press-item">
