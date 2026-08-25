@@ -109,7 +109,14 @@
     .press-item a:focus-visible { outline: 2px solid #1a1a18; outline-offset: 4px; }
 
     /* One item breaks the rhythm: the only ranked, verifiable claim. */
-    .press-quote { margin: 14px 0; }
+    .press-callout {
+      display: block;
+      margin-bottom: 56px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .press-callout:focus-visible { outline: 2px solid #1a1a18; outline-offset: 4px; }
 
     .quote-mark {
       font-weight: 700;
@@ -123,21 +130,20 @@
 
     .quote-attr {
       display: block;
-      margin-top: 16px;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: #aaa9a2;
+      margin-top: 14px;
+      font-size: 12px;
+      letter-spacing: 0.02em;
+      color: #8f8f87;
     }
 
-    .press-quote a:hover .quote-mark,
-    .press-quote a:focus-visible .quote-mark { color: #57574f; }
+    .press-callout:hover .quote-mark,
+    .press-callout:focus-visible .quote-mark { color: #57574f; }
 
     @media (max-width: 600px) {
       .press-page { padding: 82px 20px 100px; }
       .press-hero-figure { margin-bottom: 36px; }
       .press-list { gap: 34px; }
-      .press-quote { margin: 6px 0; }
+      .press-callout { margin-bottom: 40px; }
     }
   </style>
 </head>
@@ -172,6 +178,11 @@
            loading="eager" fetchpriority="high" decoding="async">
     </figure>
 
+    <a class="press-callout" href="https://freeskier.com/stories/top-6-ski-packs-2018-2019" target="_blank" rel="noopener">
+      <span class="quote-mark">Ranked&nbsp;#1 of &ldquo;The 6 best ski packs of 2018&ndash;2019&rdquo;</span>
+      <span class="quote-attr">Freeskier Magazine</span>
+    </a>
+
     <div class="press-list">
 
       <div class="press-item">
@@ -183,13 +194,13 @@
       <div class="press-item">
         <a href="https://competition.adesignaward.com/ada-winner-design.php?ID=97273" target="_blank" rel="noopener">
           <span class="press-outlet">A&rsquo; Design Award</span>
-          <span class="press-headline">Cornice Dresser &mdash; Iron A&rsquo; Design Award, Furniture Design, 2020</span>
+          <span class="press-headline">Cornice Dresser &mdash; Iron A&rsquo; Design Award, Furniture Design</span>
         </a>
       </div>
-      <div class="press-item press-quote">
-        <a href="https://freeskier.com/stories/top-6-ski-packs-2018-2019" target="_blank" rel="noopener">
-          <span class="quote-mark">Ranked&nbsp;#1 of &ldquo;The 6 best ski packs of 2018&ndash;2019&rdquo;</span>
-          <span class="quote-attr">Freeskier Magazine</span>
+      <div class="press-item">
+        <a href="https://freeskier.com/gear/switch-designs-the-boot-bag-2018-19" target="_blank" rel="noopener">
+          <span class="press-outlet">Freeskier Magazine</span>
+          <span class="press-headline">Buyer&rsquo;s Guide Gear Spotlight</span>
         </a>
       </div>
       <div class="press-item">
@@ -201,7 +212,7 @@
       <div class="press-item">
         <a href="https://youtu.be/1GtdydkF5WE?t=893" target="_blank" rel="noopener">
           <span class="press-outlet">Outdoor Retailer Show</span>
-          <span class="press-headline"><span class="kind">&#9654;&#8202;Video</span>The Gear Guide Presentation, 2021</span>
+          <span class="press-headline"><span class="kind">&#9654;&#8202;Video</span>The Gear Guide Presentation</span>
         </a>
       </div>
     </div>
