@@ -16,7 +16,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:wght@700&family=Inter:wght@400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:wght@700&family=Inter:wght@400&family=Archivo:wght@800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/shared.css">
   <style>
     html, body { background-color: #fafaf9; color: #1a1a18; }
@@ -27,13 +27,18 @@
       padding: 82px 32px 180px;
     }
 
-    .press-label {
-      font-size: 11px;
-      font-weight: 400;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: #aaa9a2;
-      margin-bottom: 40px;
+    /* The heading stays in the document for screen readers and search, but
+       carries no visual weight - the spread opens the page instead. */
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      clip-path: inset(50%);
+      white-space: nowrap;
+      border: 0;
     }
 
     /* Hero: reserved for a photograph of the press itself, not a product shot.
@@ -48,24 +53,14 @@
       height: auto;
     }
 
-    .press-hero-figure figcaption {
-      margin-top: 10px;
-      font-size: 11px;
-      letter-spacing: 0.04em;
-      color: #aaa9a2;
-    }
-
     .press-list {
-      border-top: 1px solid #e4e3dc;
-    }
-
-    .press-item {
-      border-bottom: 1px solid #e4e3dc;
+      display: flex;
+      flex-direction: column;
+      gap: 44px;
     }
 
     .press-item a {
       display: block;
-      padding: 26px 0;
       text-decoration: none;
       color: inherit;
     }
@@ -73,14 +68,26 @@
     /* The outlet is the credential, so it gets the display face. */
     .press-outlet {
       display: block;
-      font-family: 'Libre Bodoni', serif;
-      font-weight: 700;
-      font-size: clamp(20px, 2.8vw, 28px);
-      line-height: 1.15;
+      font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+      font-weight: 800;
+      font-size: clamp(19px, 2.5vw, 26px);
+      line-height: 1.12;
       text-transform: uppercase;
-      letter-spacing: 0.005em;
+      letter-spacing: -0.012em;
       color: #1a1a18;
       transition: color 0.2s ease;
+    }
+
+    .kind {
+      display: inline-block;
+      margin-right: 10px;
+      padding-right: 10px;
+      border-right: 1px solid #d8d7d0;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #8f8f87;
+      vertical-align: 1px;
     }
 
     .press-headline {
@@ -101,13 +108,14 @@
     .press-item a:focus-visible { outline: 2px solid #1a1a18; outline-offset: 4px; }
 
     /* One item breaks the rhythm: the only ranked, verifiable claim. */
-    .press-quote a { padding: 44px 0; }
+    .press-quote { margin: 14px 0; }
 
     .quote-mark {
-      font-family: 'Libre Bodoni', serif;
-      font-weight: 700;
-      font-size: clamp(30px, 4.6vw, 44px);
-      line-height: 1.18;
+      font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+      font-weight: 800;
+      font-size: clamp(26px, 3.9vw, 36px);
+      line-height: 1.16;
+      letter-spacing: -0.02em;
       color: #1a1a18;
       display: block;
       transition: color 0.2s ease;
@@ -127,10 +135,9 @@
 
     @media (max-width: 600px) {
       .press-page { padding: 82px 20px 100px; }
-      .press-label { margin-bottom: 28px; }
       .press-hero-figure { margin-bottom: 36px; }
-      .press-item a { padding: 22px 0; }
-      .press-quote a { padding: 34px 0; }
+      .press-list { gap: 34px; }
+      .press-quote { margin: 6px 0; }
     }
   </style>
 </head>
@@ -156,21 +163,20 @@
 
   <div class="press-page">
 
-    <h1 class="press-label">Selected Press</h1>
+    <h1 class="visually-hidden">Selected Press</h1>
 
     <figure class="press-hero-figure">
       <img src="/images/press/outdoor-retailer-2021.jpg"
            alt="Switch Designs boot bags arranged in a grid across the opening spread of Outdoor Retailer Magazine, January 2021"
            class="press-hero" width="993" height="1200"
            loading="eager" fetchpriority="high" decoding="async">
-      <figcaption>Outdoor Retailer, January 2021. Photograph by Andrew Kornylak.</figcaption>
     </figure>
 
     <div class="press-list">
 
       <div class="press-item">
         <a href="https://www.bloomberg.com/news/articles/2020-10-08/switch-designs-ski-boot-bag-a-radical-redesign-as-swanky-luggage" target="_blank" rel="noopener">
-          <span class="press-outlet">Bloomberg</span>
+          <span class="press-outlet">Bloomberg Businessweek</span>
           <span class="press-headline">The Humble Ski Boot Bag Gets Redesigned as Swanky Luggage</span>
         </a>
       </div>
@@ -183,7 +189,7 @@
       <div class="press-item press-quote">
         <a href="https://freeskier.com/stories/top-6-ski-packs-2018-2019" target="_blank" rel="noopener">
           <span class="quote-mark">Ranked&nbsp;#1 of &ldquo;The 6 best ski packs of 2018&ndash;2019&rdquo;</span>
-          <span class="quote-attr">Freeskier</span>
+          <span class="quote-attr">Freeskier Magazine</span>
         </a>
       </div>
       <div class="press-item">
@@ -195,7 +201,7 @@
       <div class="press-item">
         <a href="https://youtu.be/1GtdydkF5WE?t=893" target="_blank" rel="noopener">
           <span class="press-outlet">Outdoor Retailer</span>
-          <span class="press-headline">The Gear Guide Presentation, 2021</span>
+          <span class="press-headline"><span class="kind">&#9654;&#8202;Video</span>The Gear Guide Presentation, 2021</span>
         </a>
       </div>
     </div>
