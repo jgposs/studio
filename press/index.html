@@ -16,7 +16,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:wght@700&family=Inter:wght@400&family=Archivo:wght@800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/shared.css">
   <style>
     html, body { background-color: #fafaf9; color: #1a1a18; }
@@ -65,15 +65,16 @@
       color: inherit;
     }
 
-    /* The outlet is the credential, so it gets the display face. */
+    /* The outlet is the credential, so it gets weight - the body face at 700
+       rather than a second typeface. Libre Bodoni stays reserved for the
+       wordmark. */
     .press-outlet {
       display: block;
-      font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
-      font-weight: 800;
+      font-weight: 700;
       font-size: clamp(19px, 2.5vw, 26px);
       line-height: 1.12;
       text-transform: uppercase;
-      letter-spacing: -0.012em;
+      letter-spacing: 0.01em;
       color: #1a1a18;
       transition: color 0.2s ease;
     }
@@ -111,11 +112,10 @@
     .press-quote { margin: 14px 0; }
 
     .quote-mark {
-      font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
-      font-weight: 800;
-      font-size: clamp(26px, 3.9vw, 36px);
-      line-height: 1.16;
-      letter-spacing: -0.02em;
+      font-weight: 700;
+      font-size: clamp(27px, 4.1vw, 38px);
+      line-height: 1.18;
+      letter-spacing: -0.015em;
       color: #1a1a18;
       display: block;
       transition: color 0.2s ease;
