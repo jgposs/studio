@@ -28,6 +28,9 @@ SPEC = [
  ("bullet-glove",        "images/bullet-glove/Switch Gloves-013.jpg",                             .48, .48, .98),
  ("creative-switch-pt2", "images/creative-switch-pt2/LobozzoPeter-2.jpg",                         .58, .60, .81),
  ("creative-switch-pt3", "images/creative-switch-pt3/Val d'Isere Switch Shoot 5.jpg",             .50, .52, .86),
+ # Video tiles: stills pulled from the edits, kept full-frame in images/video-stills/
+ ("team",                "images/video-stills/team.jpg",                                          .37, .50, 1.0),
+ ("switch-team-edit",    "images/video-stills/switch-team-edit.jpg",                              .50, .50, 1.0),
 ]
 
 root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
