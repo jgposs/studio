@@ -47,11 +47,19 @@
       margin: 0 0 56px;
     }
 
+    .press-hero-link { display: block; }
+
+    .press-hero-link:focus-visible { outline: 2px solid #1a1a18; outline-offset: 4px; }
+
     .press-hero {
       display: block;
       width: 100%;
       height: auto;
+      transition: opacity 0.25s ease;
     }
+
+    .press-hero-link:hover .press-hero,
+    .press-hero-link:focus-visible .press-hero { opacity: 0.9; }
 
     .press-list {
       display: flex;
@@ -141,10 +149,12 @@
     <h1 class="visually-hidden">Press</h1>
 
     <figure class="press-hero-figure">
-      <img src="/images/press/outdoor-retailer-2021.jpg"
-           alt="Switch Designs boot bags arranged in a grid across the opening spread of Outdoor Retailer Magazine, January 2021"
-           class="press-hero" width="993" height="1200"
-           loading="eager" fetchpriority="high" decoding="async">
+      <a class="press-hero-link" href="https://www.nxtbook.com/nxtbooks/outdoorretailer/january_2021/index.php#/p/56" target="_blank" rel="noopener">
+        <img src="/images/press/outdoor-retailer-2021.jpg"
+             alt="Switch Designs boot bags arranged in a grid across the opening spread of Outdoor Retailer Magazine, January 2021"
+             class="press-hero" width="993" height="1200"
+             loading="eager" fetchpriority="high" decoding="async">
+      </a>
     </figure>
 
     <div class="press-list">
@@ -168,7 +178,7 @@
         </a>
       </div>
       <div class="press-item">
-        <a href="https://www.nxtbook.com/nxtbooks/outdoorretailer/january_2021/index.php#/p/56" target="_blank" rel="noopener">
+        <a href="https://www.nxtbook.com/nxtbooks/outdoorretailer/january_2021/index.php#/p/66" target="_blank" rel="noopener">
           <span class="press-outlet">Outdoor Retailer Magazine</span>
           <span class="press-headline">Switch Designs&rsquo; Smart Ski Boot Bag Will Adapt to Any Storage Space</span>
         </a>
