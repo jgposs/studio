@@ -21,42 +21,106 @@
   <style>
     html, body { background-color: #fafaf9; color: #1a1a18; }
 
+    .press-page {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 82px 32px 180px;
+    }
+
+    .press-label {
+      font-size: 11px;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #aaa9a2;
+      margin-bottom: 40px;
+    }
+
+    /* Hero: reserved for a photograph of the press itself, not a product shot.
+       Drop the file in and uncomment the <img> below. */
     .press-hero {
       display: block;
       width: 100%;
       height: auto;
-      margin-bottom: 24px;
+      margin-bottom: 56px;
     }
 
-    .press-page {
-      max-width: 640px;
-      margin: 0 auto;
-      padding: 82px 32px 160px;
+    .press-list {
+      border-top: 1px solid #e4e3dc;
     }
 
-    .press-item { padding: 16px 0; }
+    .press-item {
+      border-bottom: 1px solid #e4e3dc;
+    }
 
-    .press-title {
-      font-size: 13px;
-      color: #1a1a18;
+    .press-item a {
+      display: block;
+      padding: 26px 0;
       text-decoration: none;
-      line-height: 1.5;
+      color: inherit;
+    }
+
+    /* The outlet is the credential, so it gets the display face. */
+    .press-outlet {
+      display: block;
+      font-family: 'Libre Bodoni', serif;
+      font-weight: 700;
+      font-size: clamp(20px, 2.8vw, 28px);
+      line-height: 1.15;
+      text-transform: uppercase;
+      letter-spacing: 0.005em;
+      color: #1a1a18;
+      transition: color 0.2s ease;
+    }
+
+    .press-headline {
+      display: block;
+      margin-top: 8px;
+      font-size: 14px;
+      line-height: 1.55;
+      color: #6f6f68;
+      text-underline-offset: 3px;
+    }
+
+    .press-item a:hover .press-outlet,
+    .press-item a:focus-visible .press-outlet { color: #57574f; }
+
+    .press-item a:hover .press-headline,
+    .press-item a:focus-visible .press-headline { text-decoration: underline; }
+
+    .press-item a:focus-visible { outline: 2px solid #1a1a18; outline-offset: 4px; }
+
+    /* One item breaks the rhythm: the only ranked, verifiable claim. */
+    .press-quote a { padding: 44px 0; }
+
+    .quote-mark {
+      font-family: 'Libre Bodoni', serif;
+      font-weight: 700;
+      font-size: clamp(30px, 4.6vw, 44px);
+      line-height: 1.18;
+      color: #1a1a18;
       display: block;
       transition: color 0.2s ease;
     }
 
-    .press-title:hover { color: #555; }
-
-    .press-source {
+    .quote-attr {
+      display: block;
+      margin-top: 16px;
       font-size: 11px;
-      color: #aaa9a2;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-top: 6px;
+      letter-spacing: 0.14em;
+      color: #aaa9a2;
     }
+
+    .press-quote a:hover .quote-mark,
+    .press-quote a:focus-visible .quote-mark { color: #57574f; }
 
     @media (max-width: 600px) {
       .press-page { padding: 82px 20px 100px; }
+      .press-label { margin-bottom: 28px; }
+      .press-hero { margin-bottom: 36px; }
+      .press-item a { padding: 22px 0; }
+      .press-quote a { padding: 34px 0; }
     }
   </style>
 </head>
@@ -82,27 +146,45 @@
 
   <div class="press-page">
 
-    <img src="/images/LobozzoPeter_049.jpg" alt="Switch Designs" class="press-hero" width="2048" height="1365" loading="eager" fetchpriority="high" decoding="async">
+    <h1 class="press-label">Selected Press</h1>
 
-    <div class="press-item">
-      <a class="press-title" href="https://www.bloomberg.com/news/articles/2020-10-08/switch-designs-ski-boot-bag-a-radical-redesign-as-swanky-luggage" target="_blank" rel="noopener">The Humble Ski Boot Bag Gets Redesigned as Swanky Luggage</a>
-      <div class="press-source">Bloomberg</div>
-    </div>
-    <div class="press-item">
-      <a class="press-title" href="https://competition.adesignaward.com/ada-winner-design.php?ID=97273" target="_blank" rel="noopener">Cornice Dresser &mdash; Iron A&rsquo; Design Award, Furniture Design</a>
-      <div class="press-source">A&rsquo; Design Award, 2020</div>
-    </div>
-    <div class="press-item">
-      <a class="press-title" href="https://freeskier.com/stories/top-6-ski-packs-2018-2019" target="_blank" rel="noopener">Ski Boot Bag Ranked #1 in Freeskier&rsquo;s Top Ski Packs</a>
-      <div class="press-source">Freeskier</div>
-    </div>
-    <div class="press-item">
-      <a class="press-title" href="https://www.nxtbook.com/nxtbooks/outdoorretailer/january_2021/index.php#/p/56" target="_blank" rel="noopener">Switch Designs&rsquo; Smart Ski Boot Bag Will Adapt to Any Storage Space</a>
-      <div class="press-source">Outdoor Retailer Magazine</div>
-    </div>
-    <div class="press-item">
-      <a class="press-title" href="https://youtu.be/1GtdydkF5WE?t=893" target="_blank" rel="noopener">Outdoor Retailer 2021 &mdash; The Gear Guide Presentation</a>
-      <div class="press-source">Outdoor Retailer</div>
+    <!-- Hero goes here once the Outdoor Retailer spread is exported:
+    <img src="/images/press/outdoor-retailer-spread.jpg" alt="Switch Designs in Outdoor Retailer Magazine"
+         class="press-hero" width="0" height="0" loading="eager" fetchpriority="high" decoding="async">
+    -->
+
+    <div class="press-list">
+
+      <div class="press-item">
+        <a href="https://www.bloomberg.com/news/articles/2020-10-08/switch-designs-ski-boot-bag-a-radical-redesign-as-swanky-luggage" target="_blank" rel="noopener">
+          <span class="press-outlet">Bloomberg</span>
+          <span class="press-headline">The Humble Ski Boot Bag Gets Redesigned as Swanky Luggage</span>
+        </a>
+      </div>
+      <div class="press-item">
+        <a href="https://competition.adesignaward.com/ada-winner-design.php?ID=97273" target="_blank" rel="noopener">
+          <span class="press-outlet">A&rsquo; Design Award</span>
+          <span class="press-headline">Cornice Dresser &mdash; Iron A&rsquo; Design Award, Furniture Design, 2020</span>
+        </a>
+      </div>
+      <div class="press-item press-quote">
+        <a href="https://freeskier.com/stories/top-6-ski-packs-2018-2019" target="_blank" rel="noopener">
+          <span class="quote-mark">Ranked&nbsp;#1 of &ldquo;The 6 best ski packs of 2018&ndash;2019&rdquo;</span>
+          <span class="quote-attr">Freeskier</span>
+        </a>
+      </div>
+      <div class="press-item">
+        <a href="https://www.nxtbook.com/nxtbooks/outdoorretailer/january_2021/index.php#/p/56" target="_blank" rel="noopener">
+          <span class="press-outlet">Outdoor Retailer Magazine</span>
+          <span class="press-headline">Switch Designs&rsquo; Smart Ski Boot Bag Will Adapt to Any Storage Space</span>
+        </a>
+      </div>
+      <div class="press-item">
+        <a href="https://youtu.be/1GtdydkF5WE?t=893" target="_blank" rel="noopener">
+          <span class="press-outlet">Outdoor Retailer</span>
+          <span class="press-headline">The Gear Guide Presentation, 2021</span>
+        </a>
+      </div>
     </div>
 
   </div>
