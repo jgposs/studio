@@ -22,10 +22,14 @@ QUALITY = 85
 #  output name                     camera original      preview fallback
 SPEC = [
     ("mastermind-jacket-worn.jpg",   "0Y7A0067.JPG", ""),
-    ("mastermind-jacket-back.jpg",   "0Y7A0019.JPG", "0Y7A0019_preview1000.jpg"),
     ("mastermind-jacket-collar.jpg", "0Y7A0017.JPG", "0Y7A0017_preview1000.jpg"),
-    ("mastermind-jacket-patch.jpg",  "0Y7A0013.JPG", "0Y7A0013_preview1000.jpg"),
     ("mastermind-jacket-button.jpg", "0Y7A0005.JPG", "0Y7A0005_preview1000.jpg"),
+    # Cut from the edit 2026-08-27, deliberately not rebuilt:
+    #   0Y7A0019 back-panel macro - the graphic already reads in the loop, the
+    #     on-body frame and the studio wide; a fourth look added nothing.
+    #   0Y7A0013 patch macro - same patch as the collar frame, and the button
+    #     macro already carries the tight-detail slot.
+    # Both derivatives live in _originals/mastermind-jacket/cut-from-edit/.
     # Closing frame: black-and-white studio wide, shot on a different body.
     ("mastermind-jacket-studio.jpg", "1786833202000_R0001080.JPG", ""),
 ]
