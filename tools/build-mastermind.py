@@ -26,6 +26,8 @@ SPEC = [
     ("mastermind-jacket-collar.jpg", "0Y7A0017.JPG", "0Y7A0017_preview1000.jpg"),
     ("mastermind-jacket-patch.jpg",  "0Y7A0013.JPG", "0Y7A0013_preview1000.jpg"),
     ("mastermind-jacket-button.jpg", "0Y7A0005.JPG", "0Y7A0005_preview1000.jpg"),
+    # Closing frame: black-and-white studio wide, shot on a different body.
+    ("mastermind-jacket-studio.jpg", "1786833202000_R0001080.JPG", ""),
 ]
 
 root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
