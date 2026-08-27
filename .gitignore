@@ -2,3 +2,8 @@
 .claude/
 _originals/
 images/thumbs/sizes.json
+
+# mastermind-jacket/ doubles as the page folder and the drop folder for camera
+# sources (multi-MB .JPG and .MOV). Ship the page, ignore everything beside it.
+mastermind-jacket/*
+!mastermind-jacket/index.html

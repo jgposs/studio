@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MASTERMIND WORLD SS2018 denim jacket — James Poss</title>
+  <meta name="description" content="Detail photography and a short loop of a MASTERMIND WORLD SS2018 denim jacket. Shot and edited by James Poss.">
+  <link rel="canonical" href="https://jamesposs.studio/mastermind-jacket">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="James Poss">
+  <meta property="og:title" content="MASTERMIND WORLD SS2018 denim jacket — James Poss">
+  <meta property="og:description" content="Detail photography and a short loop of a MASTERMIND WORLD SS2018 denim jacket. Shot and edited by James Poss.">
+  <meta property="og:url" content="https://jamesposs.studio/mastermind-jacket">
+  <meta property="og:image" content="https://jamesposs.studio/images/mastermind-jacket/mastermind-jacket-poster.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:wght@700&family=Inter:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/shared.css">
+  <link rel="stylesheet" href="/project.css">
+</head>
+<body>
+
+  <a class="fixed-label" href="/">James Poss</a>
+
+  <nav class="fixed-nav">
+    <a href="/">Work</a>
+    <a href="/press">Press</a>
+    <a href="/about">About</a>
+  </nav>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="/" onclick="toggleMenu()">Work</a>
+    <a href="/press" onclick="toggleMenu()">Press</a>
+    <a href="/about" onclick="toggleMenu()">About</a>
+  </div>
+
+  <div class="project-layout">
+
+    <aside class="project-info">
+      <div class="info-block">
+        <span class="info-value title">MASTERMIND WORLD SS2018 denim jacket</span>
+      </div>
+      <div class="info-block">
+        <span class="info-value">Detail photography and a short loop of a MASTERMIND WORLD SS2018 denim jacket. Shot and edited by James Poss.</span>
+      </div>
+      <div class="info-block project-back-desktop" style="padding-top: 20px;">
+        <a class="project-back" href="/">&#8249; BACK</a>
+      </div>
+    </aside>
+
+    <div class="project-images full-bleed">
+
+      <div class="project-video ratio-portrait78 cap-height">
+        <video id="jacket-loop" poster="/images/mastermind-jacket/mastermind-jacket-poster.jpg"
+               width="1400" height="1600" autoplay loop muted playsinline preload="metadata"
+               aria-label="A light sweep across the glitter skull and crossbones on the back of the jacket.">
+          <source src="/images/mastermind-jacket/mastermind-jacket.webm" type="video/webm">
+          <source src="/images/mastermind-jacket/mastermind-jacket.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="project-image">
+        <img src="/images/mastermind-jacket/mastermind-jacket-worn.jpg" alt="The jacket worn, back to camera, glitter skull and crossbones across the shoulders." width="1333" height="2000" loading="lazy" decoding="async">
+      </div>
+      <div class="project-image">
+        <img src="/images/mastermind-jacket/mastermind-jacket-back.jpg" alt="Glitter skull and crossbones appliqué across the back panel of the denim jacket." width="2000" height="1333" loading="lazy" decoding="async">
+      </div>
+      <div class="project-image">
+        <img src="/images/mastermind-jacket/mastermind-jacket-collar.jpg" alt="Embossed leather brand patch at the inside collar, framed by the open placket." width="2000" height="1333" loading="lazy" decoding="async">
+      </div>
+      <div class="project-image">
+        <img src="/images/mastermind-jacket/mastermind-jacket-patch.jpg" alt="Macro of the embossed leather patch, skull and crossbones raised in the hide." width="2000" height="1333" loading="lazy" decoding="async">
+      </div>
+      <div class="project-image">
+        <img src="/images/mastermind-jacket/mastermind-jacket-button.jpg" alt="Macro of the engraved metal shank button against washed grey denim." width="2000" height="1333" loading="lazy" decoding="async">
+      </div>
+
+    </div>
+
+    <a class="project-back project-back-mobile" href="/">&#8249; BACK</a>
+
+  </div>
+
+  <script>
+    (function () {
+      var btn = document.getElementById('hamburger');
+      var menu = document.getElementById('mobile-menu');
+      function setOpen(open) {
+        btn.classList.toggle('open', open);
+        menu.classList.toggle('open', open);
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      }
+      window.toggleMenu = function () {
+        setOpen(!menu.classList.contains('open'));
+      };
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') setOpen(false);
+      });
+
+      // Autoplay cannot be suppressed from CSS, so honour reduced-motion here:
+      // pause on the first frame and give the viewer controls to start it.
+      var vid = document.getElementById('jacket-loop');
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+      function applyMotion() {
+        if (!vid) return;
+        if (reduce.matches) {
+          vid.autoplay = false;
+          vid.removeAttribute('loop');
+          vid.setAttribute('controls', '');
+          vid.pause();
+        } else {
+          vid.setAttribute('loop', '');
+          vid.removeAttribute('controls');
+        }
+      }
+      applyMotion();
+      if (reduce.addEventListener) reduce.addEventListener('change', applyMotion);
+    })();
+  </script>
+</body>
+</html>

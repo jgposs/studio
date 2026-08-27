@@ -45,6 +45,10 @@ html, body { background-color: #fafaf9; color: #1a1a18; }
 .info-value.title {
   text-transform: uppercase;
   letter-spacing: 0.04em;
+  /* Titles opt out of the justified body setting. Short titles never wrapped
+     so it never showed, but a title long enough to break onto a second line
+     gets its word gaps stretched across the column. */
+  text-align: left;
 }
 
 .project-images {
@@ -66,6 +70,18 @@ html, body { background-color: #fafaf9; color: #1a1a18; }
 /* Photo-essay pages run images at full column width, uncropped. */
 .project-images.full-bleed .project-image img { max-height: none; }
 
+/* A portrait video at full column width overshoots the viewport. Cap it by
+   WIDTH in vh units rather than max-height: the flex column stretches items
+   to full width, which would override a height cap, but it still respects
+   max-width. 68.25vh = 78vh of height at the 1400:1600 ratio, and the number
+   holds for the padding-bottom fallback as well as for aspect-ratio. */
+.project-video.cap-height { max-width: 68.25vh; }
+
+@media (max-width: 768px) {
+  /* Narrow screens are width-bound, not height-bound. Let it fill. */
+  .project-video.cap-height { max-width: none; }
+}
+
 /* Ratio comes from the video's real dimensions; pages opt in with a modifier.
    Deliberately no var() inside aspect-ratio: a browser can support the
    property yet fail to substitute a variable into it, which would pass the
@@ -78,15 +94,25 @@ html, body { background-color: #fafaf9; color: #1a1a18; }
 }
 
 .project-video.ratio-minidv { padding-bottom: 73.171%; }   /* 328 x 240 */
+.project-video.ratio-portrait78 { padding-bottom: 114.286%; } /* 1400 x 1600 */
 
 @supports (aspect-ratio: 16 / 9) {
-  .project-video {
+  /* Each modifier must be listed here, not just .project-video. @supports adds
+     no specificity, so a bare .project-video (0,1,0) loses to the
+     .project-video.ratio-* (0,2,0) rules above and the percentage padding
+     survives — the box then sizes from padding instead of aspect-ratio and
+     comes out too tall. */
+  .project-video,
+  .project-video.ratio-minidv,
+  .project-video.ratio-portrait78 {
     padding-bottom: 0;
-    aspect-ratio: 16 / 9;
   }
+  .project-video { aspect-ratio: 16 / 9; }
   .project-video.ratio-minidv { aspect-ratio: 328 / 240; }
+  .project-video.ratio-portrait78 { aspect-ratio: 1400 / 1600; }
 }
 
+.project-video video,
 .project-video iframe {
   position: absolute;
   top: 0;
